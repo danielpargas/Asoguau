@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.interfaces.daniel.asoguau">
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/Theme.CinesUnidos">
+        <!--    <meta-data android:name="com.facebook.sdk.ApplicationId" android:value="@string/facebook_app_id"/> -->
+        <uses-permission android:name="android.permission.INTERNET" />
+        <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
+        <activity
+            android:name="com.interfaces.daniel.asoguau.ui.Login"
+            android:label="@string/title_activity_login"
+            android:theme="@style/Theme.ConNavigationDrawer">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.interfaces.daniel.asoguau.ui.ActividadPrincipal"
+            android:label="@string/app_name"
+            android:theme="@style/Theme.ConNavigationDrawer"></activity>
+        <activity android:name="com.interfaces.daniel.asoguau.ui.DetallesPelicula" />
+        <activity
+            android:name="com.interfaces.daniel.asoguau.ui.Registro"
+            android:label="@string/title_activity_registro"></activity>
+        <activity
+            android:name="com.interfaces.daniel.asoguau.ui.ProcesarCompra"
+            android:label="@string/title_activity_procesar_compra"></activity>
+        <activity
+            android:name="com.facebook.FacebookActivity"
+            android:configChanges="keyboard|keyboardHidden|screenLayout|screenSize|orientation"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar"
+            android:label="@string/app_name" />
+
+        <meta-data
+            android:name="com.facebook.sdk.ApplicationId"
+            android:value="@string/app_id" />
+        <meta-data
+            android:name="com.facebook.sdk.ApplicationName"
+            android:value="@string/facebook_app_name" />
+
+        <provider
+            android:authorities="com.facebook.app.FacebookContentProvider355198514515820"
+            android:name="com.facebook.FacebookContentProvider"
+            android:exported="true" />
+        <receiver android:name="com.interfaces.daniel.asoguau.ui.HelloFacebookBroadcastReceiver">
+            <intent-filter>
+                <action android:name="com.facebook.platform.AppCallResultBroadcast" />
+            </intent-filter>
+        </receiver>
+    </application>
+
+</manifest>

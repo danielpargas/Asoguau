@@ -1,0 +1,126 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    android:background="@color/primaryColor"
+    android:orientation="vertical"
+    android:padding="@dimen/espacio_norma_1"
+    tools:context="com.interfaces.daniel.asoguau.ui.FragmentoPerfil"
+    android:id="@+id/linear_layout_login">
+
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:paddingTop="64dp"
+        android:paddingBottom="64dp" />
+
+
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        card_view:cardCornerRadius="2dp"
+        card_view:cardUseCompatPadding="true">
+
+        <GridLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:columnCount="2"
+            android:padding="@dimen/espacio_norma_1"
+            android:rowCount="1">
+
+            <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginRight="@dimen/espacio_norma_2"
+                android:src="@drawable/usuario" />
+
+
+            <EditText
+                android:id="@+id/texto_nombre"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:hint="@string/correo_login"
+                android:inputType="textEmailSubject"
+                android:textAppearance="?android:attr/textAppearanceSmall" />
+
+        </GridLayout>
+
+    </android.support.v7.widget.CardView>
+
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/espacio_norma_1"
+        card_view:cardCornerRadius="2dp"
+        card_view:cardUseCompatPadding="true">
+
+        <GridLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:columnCount="2"
+            android:padding="@dimen/espacio_norma_1"
+            android:rowCount="1">
+
+            <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginRight="@dimen/espacio_norma_2"
+                android:src="@drawable/usuario" />
+
+
+            <EditText
+                android:id="@+id/texto_nombre"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:hint="@string/clave_login"
+                android:inputType="textPassword"
+                android:textAppearance="?android:attr/textAppearanceSmall" />
+
+        </GridLayout>
+
+    </android.support.v7.widget.CardView>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@color/red_ligth"
+        android:shadowRadius="@android:integer/config_mediumAnimTime"
+        android:textColor="@color/color_light"
+        android:layout_marginBottom="64dp"
+        android:padding="@dimen/espacio_norma_2"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Ingresar"
+        android:id="@+id/boton_ingreso"
+        android:layout_gravity="center_horizontal" />
+
+    <TextView
+        android:id="@+id/texto_nombre"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:textColor="@color/color_light"
+        android:gravity="center"
+        android:layout_marginBottom="@dimen/espacio_norma_2"
+        android:text="¿No estas Registrado en Cines Unidos?"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@color/red_ligth"
+        android:textColor="@color/color_light"
+        android:text="Registrar"
+        android:id="@+id/boton_registro"
+        android:layout_gravity="center_horizontal" />
+
+</LinearLayout>

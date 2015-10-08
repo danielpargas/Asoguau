@@ -1,15 +1,15 @@
 /**
  * Copyright (c) 2014-present, Facebook, Inc. All rights reserved.
- * <p>
+ *
  * You are hereby granted a non-exclusive, worldwide, royalty-free license to use,
  * copy, modify, and distribute this software in source code or binary form for use
  * in connection with the web services and APIs provided by Facebook.
- * <p>
+ *
  * As with any software that integrates with the Facebook platform, your use of
  * this software is subject to the Facebook Developer Principles and Policies
  * [http://developers.facebook.com/policy/]. This copyright notice shall be
  * included in all copies or substantial portions of the software.
- * <p>
+ *
  * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
  * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS
  * FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR
@@ -28,59 +28,59 @@ import java.util.List;
  */
 public class MessengerThreadParams {
 
+  /**
+   * The origin of the flow that user originated from.
+   */
+  public enum Origin {
     /**
-     * The origin of the flow that user originated from.
+     * The user clicked on a reply link in Messenger to a particular message.
      */
-    public enum Origin {
-        /**
-         * The user clicked on a reply link in Messenger to a particular message.
-         */
-        REPLY_FLOW,
-
-        /**
-         * The user clicked an app shortcut in Messenger.
-         */
-        COMPOSE_FLOW,
-
-        /**
-         * The user came from a flow that was not known at the time this code was written.
-         */
-        UNKNOWN
-    }
+    REPLY_FLOW,
 
     /**
-     * The origin of the flow that the user originated from.
+     * The user clicked an app shortcut in Messenger.
      */
-    public final Origin origin;
+    COMPOSE_FLOW,
 
     /**
-     * A token representing the thread the user originated from. This is an opaque value that is not
-     * meant for the app to consume. It exists to complete the flow back to Messenger.
+     * The user came from a flow that was not known at the time this code was written.
      */
-    public final String threadToken;
+    UNKNOWN
+  }
 
-    /**
-     * Metadata that originated from content the app originally set when it sent the request to
-     * Messenger.
-     */
-    public final String metadata;
+  /**
+   * The origin of the flow that the user originated from.
+   */
+  public final Origin origin;
 
-    /**
-     * The list of participants in the thread represented as App-scoped User IDs. This may not
-     * always be set and will only ever be set for apps that include Facebook login. When set, it
-     * will only include the participants in the thread that have logged into the app. See
-     * <a href="https://developers.facebook.com/docs/apps/upgrading">docs</a> for more info.
-     */
-    public final List<String> participants;
+  /**
+   * A token representing the thread the user originated from. This is an opaque value that is not
+   * meant for the app to consume. It exists to complete the flow back to Messenger.
+   */
+  public final String threadToken;
 
-    public MessengerThreadParams(
-            Origin origin,
-            String threadToken,
-            String metadata,
-            List<String> participants) {
-        this.threadToken = threadToken;
-        this.metadata = metadata;
-        this.participants = participants;
-        this.origin = origin;
-    }
+  /**
+   * Metadata that originated from content the app originally set when it sent the request to
+   * Messenger.
+   */
+  public final String metadata;
+
+  /**
+   * The list of participants in the thread represented as App-scoped User IDs. This may not
+   * always be set and will only ever be set for apps that include Facebook login. When set, it
+   * will only include the participants in the thread that have logged into the app. See
+   * <a href="https://developers.facebook.com/docs/apps/upgrading">docs</a> for more info.
+   */
+  public final List<String> participants;
+
+  public MessengerThreadParams(
+          Origin origin,
+          String threadToken,
+          String metadata,
+          List<String> participants) {
+    this.threadToken = threadToken;
+    this.metadata = metadata;
+    this.participants = participants;
+    this.origin = origin;
+  }
 }

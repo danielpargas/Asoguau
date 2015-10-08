@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="@dimen/espacio_norma_1">
+
+    <ImageView
+        android:id="@+id/miniatura_pelicula"
+        android:layout_width="112dp"
+        android:layout_height="65dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="@dimen/espacio_norma_2"
+        android:scaleType="centerCrop"
+        android:src="@drawable/la_dama_de_negro" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_toRightOf="@id/miniatura_pelicula"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/texto_titulo_pelicula"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Dirección"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/texto_nro_referencia"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Departamento"
+            android:textAppearance="?android:attr/textAppearanceSmall" />
+
+        <TextView
+            android:id="@+id/texto_horario"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Ciudad"
+            android:textAppearance="?android:attr/textAppearanceSmall" />
+
+        <TextView
+            android:id="@+id/texto_fecha_compra"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Teléfono"
+            android:textAppearance="?android:attr/textAppearanceSmall" />
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/icono_indicador_derecho"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:src="@drawable/indicador_derecho" />
+</RelativeLayout>
