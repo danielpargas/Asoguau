@@ -23,6 +23,13 @@
         <dex dex="/home/hanyou/AndroidStudioProjects/Asoguau/app/build/intermediates/pre-dexed/debug/glide-3.6.1-a4539719463524a7d83934074cdda16f19577d0b.jar" />
     </item>
     <item
+        jar="/home/hanyou/AndroidStudioProjects/Asoguau/app/build/intermediates/exploded-aar/com.facebook.android/facebook/4.6.0/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="bc7c06c580c080ef82e81ce9be4e12a2022a3771">
+        <dex dex="/home/hanyou/AndroidStudioProjects/Asoguau/app/build/intermediates/pre-dexed/debug/classes-dfc8caad3449b4434bcd8a0fa62ca6465ce47990.jar" />
+    </item>
+    <item
         jar="/home/hanyou/AndroidStudioProjects/Asoguau/app/build/intermediates/exploded-aar/de.hdodenhof/circleimageview/1.3.0/jars/classes.jar"
         jumboMode="false"
         revision="23.0.1"
@@ -30,18 +37,11 @@
         <dex dex="/home/hanyou/AndroidStudioProjects/Asoguau/app/build/intermediates/pre-dexed/debug/classes-c9c70a47946893d56786ccaf18946aaf94c2c078.jar" />
     </item>
     <item
-        jar="/home/hanyou/AndroidStudioProjects/Asoguau/app/build/intermediates/exploded-aar/com.facebook.android/facebook/4.6.0/jars/classes.jar"
+        jar="/home/hanyou/.gradle/caches/modules-2/files-2.1/com.mcxiaoke.volley/library/1.0.19/a8f23f65fc1e522ee4a1a697ee569901a46741fa/library-1.0.19.jar"
         jumboMode="false"
         revision="23.0.1"
-        sha1="8fc2f572912f6e27378d911d6de28250d05bd727">
-        <dex dex="/home/hanyou/AndroidStudioProjects/Asoguau/app/build/intermediates/pre-dexed/debug/classes-dfc8caad3449b4434bcd8a0fa62ca6465ce47990.jar" />
-    </item>
-    <item
-        jar="/home/hanyou/AndroidStudioProjects/CinesUnidos/samples/HelloFacebookSample/build/intermediates/exploded-aar/com.android.support/support-v4/22.2.1/jars/classes.jar"
-        jumboMode="false"
-        revision="23.0.1"
-        sha1="f8efd0096475e0daf054267b61544e10dc776503">
-        <dex dex="/home/hanyou/AndroidStudioProjects/CinesUnidos/samples/HelloFacebookSample/build/intermediates/pre-dexed/debug/classes-3ba89ca95f7d1900a68f283ea3d354fb0c1300d5.jar" />
+        sha1="a8f23f65fc1e522ee4a1a697ee569901a46741fa">
+        <dex dex="/home/hanyou/AndroidStudioProjects/Asoguau/app/build/intermediates/pre-dexed/debug/library-1.0.19-70963574f02576bb60ddd9b470cb1414301574f7.jar" />
     </item>
     <item
         jar="/home/hanyou/Android/Sdk/extras/android/m2repository/com/android/support/support-annotations/22.2.1/support-annotations-22.2.1.jar"
@@ -49,6 +49,13 @@
         revision="23.0.1"
         sha1="61a0ff5c29295ec56d7e0bd3d25d95dbf71b4b2b">
         <dex dex="/home/hanyou/AndroidStudioProjects/CinesUnidos/samples/HelloFacebookSample/build/intermediates/pre-dexed/debug/support-annotations-22.2.1-bc789ea3111fb96b924cd32d1ff35ce1dd7b1031.jar" />
+    </item>
+    <item
+        jar="/home/hanyou/AndroidStudioProjects/Asoguau/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="d86429b0f0b3f3cafbeb78dda1b9d89119ccb05d">
+        <dex dex="/home/hanyou/AndroidStudioProjects/Asoguau/app/build/intermediates/pre-dexed/debug/classes-343372d3dd54680d89369f40f237e6412cd63dbc.jar" />
     </item>
     <item
         jar="/home/hanyou/AndroidStudioProjects/Asoguau/app/build/intermediates/exploded-aar/com.android.support/cardview-v7/23.0.1/jars/classes.jar"
@@ -79,11 +86,25 @@
         <dex dex="/home/hanyou/AndroidStudioProjects/CinesUnidos/samples/HelloFacebookSample/build/intermediates/pre-dexed/debug/internal_impl-22.2.1-5d20910b71111023248b5f4fa8921de2f8c74f87.jar" />
     </item>
     <item
-        jar="/home/hanyou/AndroidStudioProjects/Asoguau/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/jars/classes.jar"
+        jar="/home/hanyou/AndroidStudioProjects/CinesUnidos/samples/HelloFacebookSample/build/intermediates/exploded-aar/com.android.support/support-v4/22.2.1/jars/classes.jar"
         jumboMode="false"
         revision="23.0.1"
-        sha1="d86429b0f0b3f3cafbeb78dda1b9d89119ccb05d">
-        <dex dex="/home/hanyou/AndroidStudioProjects/Asoguau/app/build/intermediates/pre-dexed/debug/classes-343372d3dd54680d89369f40f237e6412cd63dbc.jar" />
+        sha1="f8efd0096475e0daf054267b61544e10dc776503">
+        <dex dex="/home/hanyou/AndroidStudioProjects/CinesUnidos/samples/HelloFacebookSample/build/intermediates/pre-dexed/debug/classes-3ba89ca95f7d1900a68f283ea3d354fb0c1300d5.jar" />
+    </item>
+    <item
+        jar="/home/hanyou/Android/Sdk/extras/android/m2repository/com/android/support/support-annotations/23.0.1/support-annotations-23.0.1.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="1fce89a6428c51467090d7f424e4c9c3dbd55f7e">
+        <dex dex="/home/hanyou/AndroidStudioProjects/Asoguau/app/build/intermediates/pre-dexed/debug/support-annotations-23.0.1-b1241e064be8eec78a7ba5ef919daf0429e4477a.jar" />
+    </item>
+    <item
+        jar="/home/hanyou/.gradle/caches/modules-2/files-2.1/com.parse.bolts/bolts-android/1.2.0/6ee2953ccf51ce72b6d548c30c4633b99eb4f9dd/bolts-android-1.2.0.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="6ee2953ccf51ce72b6d548c30c4633b99eb4f9dd">
+        <dex dex="/home/hanyou/AndroidStudioProjects/CinesUnidos/samples/HelloFacebookSample/build/intermediates/pre-dexed/debug/bolts-android-1.2.0-ccfc48c8bfa65d3a8b452d6af8f22292ebdb2555.jar" />
     </item>
     <item
         jar="/home/hanyou/.gradle/caches/modules-2/files-2.1/com.google.code.gson/gson/2.4/695b63d702f505b9b916e02272e3b6381bade7f/gson-2.4.jar"
@@ -98,27 +119,6 @@
         revision="23.0.1"
         sha1="4356e230a981d1bbf047d848b91bc0d9b7c5bacc">
         <dex dex="/home/hanyou/AndroidStudioProjects/Asoguau/app/build/intermediates/pre-dexed/debug/classes-d48bf0a9f724024db940e1367b2dfe441b78ae29.jar" />
-    </item>
-    <item
-        jar="/home/hanyou/.gradle/caches/modules-2/files-2.1/com.parse.bolts/bolts-android/1.2.0/6ee2953ccf51ce72b6d548c30c4633b99eb4f9dd/bolts-android-1.2.0.jar"
-        jumboMode="false"
-        revision="23.0.1"
-        sha1="6ee2953ccf51ce72b6d548c30c4633b99eb4f9dd">
-        <dex dex="/home/hanyou/AndroidStudioProjects/CinesUnidos/samples/HelloFacebookSample/build/intermediates/pre-dexed/debug/bolts-android-1.2.0-ccfc48c8bfa65d3a8b452d6af8f22292ebdb2555.jar" />
-    </item>
-    <item
-        jar="/home/hanyou/Android/Sdk/extras/android/m2repository/com/android/support/support-annotations/23.0.1/support-annotations-23.0.1.jar"
-        jumboMode="false"
-        revision="23.0.1"
-        sha1="1fce89a6428c51467090d7f424e4c9c3dbd55f7e">
-        <dex dex="/home/hanyou/AndroidStudioProjects/Asoguau/app/build/intermediates/pre-dexed/debug/support-annotations-23.0.1-b1241e064be8eec78a7ba5ef919daf0429e4477a.jar" />
-    </item>
-    <item
-        jar="/home/hanyou/.gradle/caches/modules-2/files-2.1/com.mcxiaoke.volley/library/1.0.19/a8f23f65fc1e522ee4a1a697ee569901a46741fa/library-1.0.19.jar"
-        jumboMode="false"
-        revision="23.0.1"
-        sha1="a8f23f65fc1e522ee4a1a697ee569901a46741fa">
-        <dex dex="/home/hanyou/AndroidStudioProjects/Asoguau/app/build/intermediates/pre-dexed/debug/library-1.0.19-70963574f02576bb60ddd9b470cb1414301574f7.jar" />
     </item>
 
 </items>
