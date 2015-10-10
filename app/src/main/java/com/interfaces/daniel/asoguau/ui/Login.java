@@ -40,7 +40,7 @@ public class Login extends AppCompatActivity {
         Button btnIngreso = (Button) findViewById(R.id.boton_ingreso);
         ImageView imgLogo = (ImageView) findViewById(R.id.imageView);
         Glide.with(this)
-                .load(R.drawable.logo_cinesunidos)
+                .load(R.drawable.asoguaulogo2)
                 .into(imgLogo);
         btnIngreso.setOnClickListener(new View.OnClickListener() {
             @Override
