@@ -27,7 +27,7 @@ public class Registro extends AppCompatActivity implements
 
         agregarToolBar();
 
-        fechaNacimiento = (TextView) findViewById(R.id.texto_fecha_nacimiento);
+        /*fechaNacimiento = (TextView) findViewById(R.id.texto_fecha_nacimiento);
         fechaNacimiento.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -39,7 +39,7 @@ public class Registro extends AppCompatActivity implements
                         .add(R.id.fragment, datePicker, "Fragmento")
                         .commit();
             }
-        });
+        });*/
     }
 
     private Activity activity = this;

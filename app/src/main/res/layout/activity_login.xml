@@ -3,54 +3,39 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:card_view="http://schemas.android.com/apk/res-auto"
-    android:background="@color/primaryColor"
+    android:background="@color/blanco"
     android:orientation="vertical"
     android:padding="@dimen/espacio_norma_1"
     tools:context="com.interfaces.daniel.asoguau.ui.FragmentoPerfil"
     android:id="@+id/linear_layout_login">
 
-
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_height="120dp"
         android:layout_gravity="center"
-        android:paddingTop="64dp"
-        android:paddingBottom="64dp" />
+
+        />
+
 
 
     <android.support.v7.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         card_view:cardCornerRadius="2dp"
+        android:layout_marginTop="30dp"
         card_view:cardUseCompatPadding="true">
 
-        <GridLayout
+        <EditText
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:columnCount="2"
-            android:padding="@dimen/espacio_norma_1"
-            android:rowCount="1">
-
-            <ImageView
-                android:id="@+id/imageView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginRight="@dimen/espacio_norma_2"
-                android:src="@drawable/usuario" />
-
-
-            <EditText
-                android:id="@+id/texto_nombre"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:hint="@string/correo_login"
-                android:inputType="textEmailSubject"
-                android:textAppearance="?android:attr/textAppearanceSmall" />
-
-        </GridLayout>
+            android:layout_height="40dp"
+            android:id="@+id/user"
+            android:hint="Usuario"
+            android:gravity="center_horizontal"
+            android:textSize="25dp"
+            android:textColor="#ff007ffe"
+            android:background="@drawable/redondo"
+             />
 
     </android.support.v7.widget.CardView>
 
@@ -61,45 +46,37 @@
         card_view:cardCornerRadius="2dp"
         card_view:cardUseCompatPadding="true">
 
-        <GridLayout
+
+        <EditText
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:columnCount="2"
-            android:padding="@dimen/espacio_norma_1"
-            android:rowCount="1">
+            android:layout_height="40dp"
+            android:ems="10"
+            android:id="@+id/pass"
+            android:background="@drawable/redondo"
+            android:hint="Contrasena"
+            android:inputType="textPassword"
+            android:textSize="25dp"
+            android:layout_marginTop="5dp"
+            android:textColor="#ff007ffe"
+            android:gravity="center_horizontal"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true" />
 
-            <ImageView
-                android:id="@+id/imageView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginRight="@dimen/espacio_norma_2"
-                android:src="@drawable/usuario" />
-
-
-            <EditText
-                android:id="@+id/texto_nombre"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:hint="@string/clave_login"
-                android:inputType="textPassword"
-                android:textAppearance="?android:attr/textAppearanceSmall" />
-
-        </GridLayout>
 
     </android.support.v7.widget.CardView>
 
     <Button
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/red_ligth"
+        android:background="@drawable/login_boton"
         android:shadowRadius="@android:integer/config_mediumAnimTime"
-        android:textColor="@color/color_light"
-        android:layout_marginBottom="64dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginBottom="30dp"
         android:padding="@dimen/espacio_norma_2"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:text="Ingresar"
+
+        android:textColor="@color/blanco"
         android:id="@+id/boton_ingreso"
         android:layout_gravity="center_horizontal" />
 
@@ -108,16 +85,16 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center_vertical"
-        android:textColor="@color/color_light"
         android:gravity="center"
         android:layout_marginBottom="@dimen/espacio_norma_2"
-        android:text="¿No estas Registrado en Cines Unidos?"
+        android:text="¿No estas Registrado en Asoguau?"
         android:textAppearance="?android:attr/textAppearanceMedium" />
 
     <Button
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/red_ligth"
+        android:background="@color/turquesa"
+        android:shadowRadius="@android:integer/config_mediumAnimTime"
         android:textColor="@color/color_light"
         android:text="Registrar"
         android:id="@+id/boton_registro"

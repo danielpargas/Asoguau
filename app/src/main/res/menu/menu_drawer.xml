@@ -5,16 +5,16 @@
         <item
             android:id="@+id/item_inicio"
             android:checked="true"
-            android:icon="@drawable/inicio"
-            android:title="@string/item_inicio" />
+            android:icon="@drawable/patita2"
+            android:title="@string/item_Asoguau" />
         <item
             android:id="@+id/item_cuenta"
-            android:icon="@drawable/cuenta"
-            android:title="@string/item_cuenta" />
+            android:icon="@drawable/news1"
+            android:title="@string/item_Miasoguau" />
         <item
             android:id="@+id/item_categorias"
-            android:icon="@drawable/categorias"
-            android:title="@string/item_pelicula" />
+            android:icon="@drawable/red"
+            android:title="@string/item_Asored" />
     </group>
 
 </menu>
