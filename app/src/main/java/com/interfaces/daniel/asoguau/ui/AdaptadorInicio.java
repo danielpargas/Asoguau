@@ -1,6 +1,7 @@
 package com.interfaces.daniel.asoguau.ui;
 
 import android.app.Activity;
+import android.content.Context;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,6 +12,8 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 import com.interfaces.daniel.asoguau.R;
 import com.interfaces.daniel.asoguau.modelo.Noticia;
+
+import java.util.List;
 
 /**
  * Created by hanyou on 14/09/15.
@@ -31,7 +34,16 @@ public class AdaptadorInicio extends RecyclerView.Adapter<AdaptadorInicio.ViewHo
         }
     }
 
+    private List<Noticia> items;
+    private Context context;
+
+
     public AdaptadorInicio() {
+    }
+
+    public AdaptadorInicio(List<Noticia> items, Context context) {
+        this.items = items;
+        this.context = context;
     }
 
     public Activity activity;
@@ -46,15 +58,15 @@ public class AdaptadorInicio extends RecyclerView.Adapter<AdaptadorInicio.ViewHo
 
     @Override
     public void onBindViewHolder(final ViewHolder holder, int position) {
-        Noticia item = Noticia.NOTICIAS.get(position);
 
         Glide.with(holder.itemView.getContext())
-                .load(item.getIdDrawable())
+                .load(R.drawable.asoguaulogo2)
                 .centerCrop()
                 .into(holder.imagen);
 
-        holder.nombre.setText(item.getTitulo());
-        holder.desripcion.setText(item.getDescripcion());
+        holder.nombre.setText(items.get(position).getTitulo());
+        holder.desripcion.setText(items.get(position).getResumen());
+
         /*
         holder.itemView.setClickable(true);
         holder.itemView.setOnClickListener(new View.OnClickListener() {
@@ -70,6 +82,6 @@ public class AdaptadorInicio extends RecyclerView.Adapter<AdaptadorInicio.ViewHo
 
     @Override
     public int getItemCount() {
-        return Noticia.NOTICIAS.size();
+        return items.size();
     }
 }

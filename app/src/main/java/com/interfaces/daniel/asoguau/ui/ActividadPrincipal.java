@@ -1,6 +1,7 @@
 package com.interfaces.daniel.asoguau.ui;
 
 
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
@@ -12,6 +13,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.TextView;
 
 import com.interfaces.daniel.asoguau.R;
 
@@ -36,6 +38,15 @@ public class ActividadPrincipal extends AppCompatActivity {
             seleccionarItem(navigationView.getMenu().getItem(0));
 
         }
+
+        TextView txtNombre = (TextView) findViewById(R.id.nombre_usuario);
+
+        SharedPreferences preferences = getSharedPreferences("DatosUsuario", MODE_PRIVATE);
+        String nombre = preferences.getString("nombre", "Error");
+        String apellido = preferences.getString("apellido", "Error");
+
+        txtNombre.setText(nombre + " " + apellido);
+
 
     }
 
