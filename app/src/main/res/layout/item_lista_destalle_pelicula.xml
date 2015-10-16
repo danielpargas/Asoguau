@@ -16,7 +16,6 @@
         android:layout_height="@dimen/avatar_size"
         android:layout_marginRight="16dp" />
 
-    <!-- Nombre de la chica -->
     <TextView xmlns:android="http://schemas.android.com/apk/res/android"
         android:id="@+id/list_item_textview"
         android:layout_width="match_parent"

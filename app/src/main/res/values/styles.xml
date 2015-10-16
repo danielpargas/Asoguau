@@ -27,5 +27,7 @@
         <!-- Support library compatibility -->
         <item name="windowActionBarOverlay">true</item>
     </style>
+    <style name="Theme.CinesUnidos.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+    <style name="Theme.CinesUnidos.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
 </resources>
