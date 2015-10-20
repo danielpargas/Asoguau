@@ -26,4 +26,4 @@
         android:text="@string/messenger_send_button_text"
         style="@style/MessengerButtonText.White.Large" />
 </FrameLayout>
-<!-- From: file:/home/hanyou/AndroidStudioProjects/Asoguau/facebook/res/layout/messenger_button_send_white_large.xml -->
+<!-- From: file:/C:/Users/Migue/AndroidStudioProjects/Asoguau/facebook/res/layout/messenger_button_send_white_large.xml -->

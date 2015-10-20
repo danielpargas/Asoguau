@@ -29,7 +29,7 @@ public class Noticia {
         NOTICIAS.add(new Noticia("Titulo Noticia", "Descripcion", R.drawable.noticia_cine_ve));
         NOTICIAS.add(new Noticia("Titulo Noticia", "Descripcion", R.drawable.noticia_cotufa));
         NOTICIAS.add(new Noticia("Titulo Noticia", "Descripcion", R.drawable.noticia_evento));
-        NOTICIAS.add(new Noticia("Titulo Noticia", "Descripcion", R.drawable.noticia_calidad));
+        NOTICIAS.add(new Noticia("Titulo Noticia", "Descripcion", R.drawable.noticia_cine));
         NOTICIAS.add(new Noticia("Titulo Noticia", "Descripcion", R.drawable.noticia_comodidad));
         NOTICIAS.add(new Noticia("Titulo Noticia", "Descripcion", R.drawable.noticias_redes));
     }

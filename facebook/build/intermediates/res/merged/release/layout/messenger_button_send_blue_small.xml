@@ -26,4 +26,4 @@
         android:text="@string/messenger_send_button_text"
         style="@style/MessengerButtonText.Blue.Small" />
 </FrameLayout>
-<!-- From: file:/home/hanyou/AndroidStudioProjects/Asoguau/facebook/res/layout/messenger_button_send_blue_small.xml -->
+<!-- From: file:/C:/Users/Migue/AndroidStudioProjects/Asoguau/facebook/res/layout/messenger_button_send_blue_small.xml -->

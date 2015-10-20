@@ -7,7 +7,7 @@
 
     <!-- Opcioones del Drawer -->
     <string name="item_Asoguau">Asoguao</string>
-    <string name="item_Miasoguau">Mis Noticias</string>
+    <string name="item_Miasoguau">Mi Cuenta</string>
     <string name="item_Asored">Asored</string>
     <string name="item_configuracion">Configuración</string>
 
@@ -15,8 +15,8 @@
 
     <!-- Tabs Cuenta -->
     <string name="titulo_tab_perfil">PERFIL</string>
-    <string name="titulo_tab_historial">HISTORIAL</string>
-    <string name="titulo_tab_contacto">CONTACTO</string>
+    <string name="titulo_tab_noticias">NOTICIAS</string>
+    <string name="titulo_tab_donacion">DONACIONES</string>
 
     <!-- Tabs Peliculas -->
     <string name="titulo_tab_peliculas_todas">TODAS</string>
@@ -29,7 +29,7 @@
 
     <string name="texto_cambiar_contrasena">Cambia tu contraseña</string>
     <string name="etiqueta_contrasena">Contraseña</string>
-    <string name="etiqueta_info_usuario">Información del usuario</string>
+    <string name="datos_personales">Datos Personales</string>
 
     <string-array name="Horario">
         <item>Carabobo - Sambil - 4:00pm - 6:00pm</item>

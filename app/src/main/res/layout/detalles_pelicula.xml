@@ -104,6 +104,7 @@
             app:layout_scrollFlags="scroll|exitUntilCollapsed">
 
             <!-- Imagen del detalle -->
+
             <ImageView
                 android:id="@+id/image_paralax"
                 android:layout_width="match_parent"

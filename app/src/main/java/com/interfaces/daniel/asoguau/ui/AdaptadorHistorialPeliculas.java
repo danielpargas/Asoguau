@@ -14,7 +14,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Adaptador para poblar la lista de direcciones de la sección "Mi Cuenta"
+ * Adaptador para poblar la lista de noticas de la sección "Mi Cuenta"
  */
 public class AdaptadorHistorialPeliculas
         extends RecyclerView.Adapter<AdaptadorHistorialPeliculas.ViewHolder> {
@@ -90,9 +90,11 @@ public class AdaptadorHistorialPeliculas
         public static List<HistorialCompra> HISTORIAL = new ArrayList<>();
 
         static {
-            HISTORIAL.add(new HistorialCompra("La Dama de Negro 2", "#32324233", "Carabobo - Sambil - 4:00pm - 6:00pm", "17/09/2015", R.drawable.la_dama_de_negro));
-            HISTORIAL.add(new HistorialCompra("La Dama de Negro 2", "#32324233", "Carabobo - Sambil - 4:00pm - 6:00pm", "17/09/2015", R.drawable.la_dama_de_negro));
-            HISTORIAL.add(new HistorialCompra("La Dama de Negro 2", "#32324233", "Carabobo - Sambil - 4:00pm - 6:00pm", "17/09/2015", R.drawable.la_dama_de_negro));
+            HISTORIAL.add(new HistorialCompra("Mi Noticia 1", "", "Descripcion de noticia Descripcion de noticia", "17/09/2015", R.drawable.noticia_cine));
+            HISTORIAL.add(new HistorialCompra("Mi Noticia 2", "", "Descripcion de noticia", "17/09/2015", R.drawable.noticia_comodidad));
+            HISTORIAL.add(new HistorialCompra("Mi Noticia 3", "", "Descripcion de noticia Descripcion de noticia", "17/09/2015", R.drawable.noticia_cine));
+            HISTORIAL.add(new HistorialCompra("Mi Noticia 4", "", "Descripcion de noticia", "17/09/2015", R.drawable.noticia_comodidad));
+            HISTORIAL.add(new HistorialCompra("Mi Noticia 5", "", "Descripcion de noticia Descripcion de noticia", "17/09/2015", R.drawable.noticia_cine));
         }
 
         public String getTitulo() {
