@@ -11,6 +11,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.DatePicker;
 import android.widget.TextView;
+import android.widget.EditText;
 
 import com.interfaces.daniel.asoguau.R;
 
@@ -18,11 +19,16 @@ public class Registro extends AppCompatActivity implements
         DatePickerDialog.OnDateSetListener {
 
     private TextView fechaNacimiento;
+    EditText validar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registro);
+
+        validar= (EditText)  findViewById(R.id.texto_nombre);
+
+            validar.setError("vhgvvjhvhvhjvjhvhv");
 
 
         agregarToolBar();

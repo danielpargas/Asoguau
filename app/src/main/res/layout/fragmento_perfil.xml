@@ -84,7 +84,7 @@
                             android:layout_height="wrap_content"
                             android:layout_gravity="center_vertical"
                             android:layout_marginBottom="32dp"
-                            android:text="numero de telefono de ususario "
+                            android:text="numero de telefono de "
                             android:textAppearance="?android:attr/textAppearanceSmall" />
 
 

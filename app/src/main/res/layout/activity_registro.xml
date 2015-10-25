@@ -65,7 +65,7 @@
 
                     <EditText
                         android:id="@+id/texto_nombre"
-                        android:layout_width="match_parent"
+                        android:layout_width="250dp"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_vertical"
                         android:layout_marginBottom="@dimen/espacio_norma_1"
@@ -84,7 +84,7 @@
 
                     <EditText
                         android:id="@+id/texto_fnacimeinto"
-                        android:layout_width="match_parent"
+                        android:layout_width="250dp"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_vertical"
                         android:layout_marginBottom="@dimen/espacio_norma_1"
@@ -102,7 +102,7 @@
 
                     <EditText
                         android:id="@+id/texto_phone"
-                        android:layout_width="match_parent"
+                        android:layout_width="250dp"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_vertical"
                         android:layout_marginBottom="@dimen/espacio_norma_1"
@@ -121,7 +121,7 @@
 
                     <EditText
                         android:id="@+id/texto_clave"
-                        android:layout_width="match_parent"
+                        android:layout_width="250dp"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_vertical"
                         android:layout_marginBottom="@dimen/espacio_norma_1"
@@ -140,7 +140,7 @@
 
                     <EditText
                         android:id="@+id/texto_claveconfir"
-                        android:layout_width="match_parent"
+                        android:layout_width="250dp"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_vertical"
                         android:layout_marginBottom="@dimen/espacio_norma_1"
@@ -159,7 +159,7 @@
 
                     <EditText
                         android:id="@+id/texto_mail"
-                        android:layout_width="match_parent"
+                        android:layout_width="250dp"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_vertical"
                         android:layout_marginBottom="@dimen/espacio_norma_1"

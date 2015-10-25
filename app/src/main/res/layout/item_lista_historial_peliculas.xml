@@ -42,7 +42,7 @@
             android:id="@+id/texto_titulo_pelicula"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Noticia"
+            android:text="NoticiaS"
             android:textAppearance="?android:attr/textAppearanceSmall"
             android:textStyle="bold"
             android:textColor="@color/turquesa_oscuro" />

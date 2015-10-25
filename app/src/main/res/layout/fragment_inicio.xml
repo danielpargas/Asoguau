@@ -13,7 +13,7 @@
         android:layout_gravity="center_horizontal"
         android:background="@color/background_header_seccion_inicio"
         android:gravity="center"
-        android:padding="8dp"
+        android:padding="9dp"
         android:text="@string/titulo_noticias_recientes"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1"
         android:textColor="@color/color_light" />

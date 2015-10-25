@@ -38,7 +38,7 @@
             android:id="@+id/titulo_noticia"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Ofertas"
+            android:text="noticias"
             android:textAppearance="@style/TextAppearance.AppCompat.Subhead.Inverse"
             android:textStyle="normal|bold"
             android:textColor="@color/turquesa" />
