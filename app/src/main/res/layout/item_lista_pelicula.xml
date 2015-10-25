@@ -24,7 +24,7 @@
         android:layout_height="wrap_content"
         android:background="@color/blanco"
         android:orientation="horizontal"
-        android:padding="@dimen/espacio_norma_1">
+        android:padding="10dp">
 
         <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/avatar2"
@@ -34,7 +34,7 @@
             android:src="@drawable/perfil" />
 
         <LinearLayout
-            android:layout_width="match_parent"
+            android:layout_width="230dp"
             android:layout_height="wrap_content"
             android:background="@color/blanco"
             android:orientation="vertical"
@@ -52,7 +52,7 @@
             android:id="@+id/descripcion_pelicula"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Nombre"
+            android:text="DESBKJBJIBJBJBJKBJKBLLLLKJBK"
             android:textColor="#000"
             android:textAppearance="@style/TextAppearance.AppCompat.Subhead.Inverse"
             android:textSize="12sp" />
@@ -66,6 +66,15 @@
                 android:textAppearance="@style/TextAppearance.AppCompat.Subhead.Inverse"
                 android:textSize="12sp" />
         </LinearLayout>
+
+        <ImageView
+            android:id="@+id/icono_derecho"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/indicador_derecho"
+            />
+
+
     </LinearLayout>
 
     <ImageView
