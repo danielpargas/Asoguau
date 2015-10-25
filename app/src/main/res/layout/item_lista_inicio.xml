@@ -11,6 +11,7 @@
         android:layout_height="wrap_content"
         card_view:cardCornerRadius="2dp"
 
+
         >
 
         <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -46,7 +47,7 @@
             android:id="@+id/descripcion_noticia"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Nombre"
+            android:text="Descripcion de noticia"
             android:textColor="#000"
             android:textAppearance="@style/TextAppearance.AppCompat.Subhead.Inverse"
             android:textSize="12sp" />
