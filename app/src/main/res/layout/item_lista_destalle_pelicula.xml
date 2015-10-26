@@ -10,7 +10,7 @@
     android:paddingTop="8dp">
 
     <!-- Image circular de la librería externa -->
-    <de.hdodenhof.circleimageview.CircleImageView
+    <he.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/avatar"
         android:layout_width="@dimen/avatar_size"
         android:layout_height="@dimen/avatar_size"

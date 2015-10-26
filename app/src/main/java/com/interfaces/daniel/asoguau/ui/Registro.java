@@ -195,7 +195,7 @@ public class Registro extends AppCompatActivity implements
             error = true;
         }
 
-        if (clave.equals(txtClaveConf.getText().toString()) && !error) {
+        if (!clave.equals(txtClaveConf.getText().toString()) && !error) {
             txtClave.setError("Las Claves deben ser Iguales");
             error = true;
         }

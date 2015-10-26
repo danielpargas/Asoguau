@@ -2,7 +2,6 @@
 
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_height="200dp"
     android:background="@drawable/material"
     android:gravity="bottom"
@@ -27,19 +26,19 @@
             android:layout_height="match_parent"
             android:layout_gravity="center">
 
-            <ImageView
-                android:id="@+id/icono_usuario"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginRight="8dp"
-                android:src="@drawable/usuario" />
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/avatar2"
+                android:layout_width="@dimen/avatar_size"
+                android:layout_height="@dimen/avatar_size"
+                android:layout_marginRight="15dp"
+                android:src="@drawable/perfil" />
 
             <TextView
                 android:id="@+id/nombre_usuario"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
-                android:text="@string/nombre_usuario_default"
+                android:text="nombre_usuario_default"
                 android:textAppearance="@style/TextAppearance.AppCompat.Body1"
                 android:textStyle="bold" />
 

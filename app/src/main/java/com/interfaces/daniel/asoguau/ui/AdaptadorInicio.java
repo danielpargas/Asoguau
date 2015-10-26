@@ -60,7 +60,7 @@ public class AdaptadorInicio extends RecyclerView.Adapter<AdaptadorInicio.ViewHo
     public void onBindViewHolder(final ViewHolder holder, int position) {
 
         Glide.with(holder.itemView.getContext())
-                .load(R.drawable.asoguaulogo2)
+                .load(R.drawable.noticias_redes)
                 .centerCrop()
                 .into(holder.imagen);
 

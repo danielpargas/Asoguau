@@ -15,6 +15,25 @@
             android:id="@+id/item_categorias"
             android:icon="@drawable/red"
             android:title="@string/item_Asored" />
+
+        <item
+            android:id="@+id/item_ajustes"
+            android:icon="@drawable/config"
+            android:title="Ajustes" />
+
+        <item
+            android:id="@+id/item_ayuda"
+            android:icon="@drawable/ayuda"
+            android:title="Ayuda" />
+
+
+        <item
+            android:id="@+id/item_Salir"
+            android:icon="@drawable/off"
+            android:title="Salir" />
+
+
     </group>
+
 
 </menu>
