@@ -2,95 +2,11 @@
 <items version="2" >
 
     <item
-        jar="C:\Users\danie\.gradle\caches\modules-2\files-2.1\com.parse.bolts\bolts-android\1.2.0\6ee2953ccf51ce72b6d548c30c4633b99eb4f9dd\bolts-android-1.2.0.jar"
+        jar="/home/hanyou/AndroidStudioProjects/Asoguau/app/build/intermediates/exploded-aar/com.facebook.android/facebook/4.6.0/jars/classes.jar"
         jumboMode="false"
         revision="23.0.1"
-        sha1="6ee2953ccf51ce72b6d548c30c4633b99eb4f9dd">
-        <dex dex="C:\Users\danie\AndroidStudioProjects\Asoguau\app\build\intermediates\pre-dexed\debug\bolts-android-1.2.0-943b7a9d3c77c3101edd463dc319fc32ec8d51c0.jar" />
-    </item>
-    <item
-        jar="C:\Users\danie\AndroidStudioProjects\Asoguau\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\23.0.1\jars\classes.jar"
-        jumboMode="false"
-        revision="23.0.1"
-        sha1="d86429b0f0b3f3cafbeb78dda1b9d89119ccb05d">
-        <dex dex="C:\Users\danie\AndroidStudioProjects\Asoguau\app\build\intermediates\pre-dexed\debug\classes-a6f292d2ff5aca54b3ecda9df096f656f4c52af5.jar" />
-    </item>
-    <item
-        jar="C:\Users\danie\AndroidStudioProjects\Asoguau\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.0.1\jars\classes.jar"
-        jumboMode="false"
-        revision="23.0.1"
-        sha1="c31e21b53ff2f74664e498248d01453a32e32d48">
-        <dex dex="C:\Users\danie\AndroidStudioProjects\Asoguau\app\build\intermediates\pre-dexed\debug\classes-0c1fc838300db5bbafaa4641376a2e96a908893c.jar" />
-    </item>
-    <item
-        jar="C:\Users\danie\.gradle\caches\modules-2\files-2.1\com.github.bumptech.glide\glide\3.6.1\86b122e640af09b0723e1fa44083c354ba6d9089\glide-3.6.1.jar"
-        jumboMode="false"
-        revision="23.0.1"
-        sha1="86b122e640af09b0723e1fa44083c354ba6d9089">
-        <dex dex="C:\Users\danie\AndroidStudioProjects\Asoguau\app\build\intermediates\pre-dexed\debug\glide-3.6.1-e120d473f77491fe803b39fe21fa0d7db656797c.jar" />
-    </item>
-    <item
-        jar="C:\Users\danie\AndroidStudioProjects\Asoguau\app\build\intermediates\exploded-aar\com.android.support\cardview-v7\23.0.1\jars\classes.jar"
-        jumboMode="false"
-        revision="23.0.1"
-        sha1="39ae02ce40c3ac828abbf780ce0ff5d7a28b7d6a">
-        <dex dex="C:\Users\danie\AndroidStudioProjects\Asoguau\app\build\intermediates\pre-dexed\debug\classes-ebad200ce0497f53387bcc8f84f9595548c1b701.jar" />
-    </item>
-    <item
-        jar="C:\Users\danie\AndroidStudioProjects\Asoguau\app\build\intermediates\exploded-aar\com.android.support\design\23.0.1\jars\classes.jar"
-        jumboMode="false"
-        revision="23.0.1"
-        sha1="e5c61a3169221a89654ffcaaed47bba51cf071ad">
-        <dex dex="C:\Users\danie\AndroidStudioProjects\Asoguau\app\build\intermediates\pre-dexed\debug\classes-c7563520b1e1fb5b54ef325259b9d836ddc496d9.jar" />
-    </item>
-    <item
-        jar="C:\Users\danie\AndroidStudioProjects\Asoguau\app\build\intermediates\exploded-aar\de.hdodenhof\circleimageview\1.3.0\jars\classes.jar"
-        jumboMode="false"
-        revision="23.0.1"
-        sha1="ac6948cce36f694f3eb3d73a135e298dc4b3527a">
-        <dex dex="C:\Users\danie\AndroidStudioProjects\Asoguau\app\build\intermediates\pre-dexed\debug\classes-620472b34003284870c9ea83ab226e6a62cfa87b.jar" />
-    </item>
-    <item
-        jar="C:\Users\danie\.gradle\caches\modules-2\files-2.1\com.google.code.gson\gson\2.4\695b63d702f505b9b916e02272e3b6381bade7f\gson-2.4.jar"
-        jumboMode="false"
-        revision="23.0.1"
-        sha1="0695b63d702f505b9b916e02272e3b6381bade7f">
-        <dex dex="C:\Users\danie\AndroidStudioProjects\Asoguau\app\build\intermediates\pre-dexed\debug\gson-2.4-9831928a8eeca09200abb0093e4744fb5f24e843.jar" />
-    </item>
-    <item
-        jar="C:\Users\danie\.gradle\caches\modules-2\files-2.1\com.mcxiaoke.volley\library\1.0.19\a8f23f65fc1e522ee4a1a697ee569901a46741fa\library-1.0.19.jar"
-        jumboMode="false"
-        revision="23.0.1"
-        sha1="a8f23f65fc1e522ee4a1a697ee569901a46741fa">
-        <dex dex="C:\Users\danie\AndroidStudioProjects\Asoguau\app\build\intermediates\pre-dexed\debug\library-1.0.19-bc779242da65dcd29397123bf50f6b94df0929f7.jar" />
-    </item>
-    <item
-        jar="C:\Users\danie\AndroidStudioProjects\Asoguau\app\build\intermediates\exploded-aar\com.facebook.android\facebook\4.6.0\jars\classes.jar"
-        jumboMode="false"
-        revision="23.0.1"
-        sha1="8c79ab2057bdfe6bf6d65facfd8d4436ae9ce0af">
-        <dex dex="C:\Users\danie\AndroidStudioProjects\Asoguau\app\build\intermediates\pre-dexed\debug\classes-b984179ae61ee67037dadb537f73ad2cc1d2e7fd.jar" />
-    </item>
-    <item
-        jar="C:\Users\danie\AndroidStudioProjects\Asoguau\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.0.1\jars\libs\internal_impl-23.0.1.jar"
-        jumboMode="false"
-        revision="23.0.1"
-        sha1="aa92916125166649d8ad4ba3940c3dd7515596d3">
-        <dex dex="C:\Users\danie\AndroidStudioProjects\Asoguau\app\build\intermediates\pre-dexed\debug\internal_impl-23.0.1-a053f74dc2411fe5d52dfe3001c6baa178349e8b.jar" />
-    </item>
-    <item
-        jar="C:\Users\danie\AndroidStudioProjects\Asoguau\app\build\intermediates\exploded-aar\com.android.support\recyclerview-v7\23.0.1\jars\classes.jar"
-        jumboMode="false"
-        revision="23.0.1"
-        sha1="4356e230a981d1bbf047d848b91bc0d9b7c5bacc">
-        <dex dex="C:\Users\danie\AndroidStudioProjects\Asoguau\app\build\intermediates\pre-dexed\debug\classes-29b7bc983f455d3e9d74ad160f5140256e9f01c1.jar" />
-    </item>
-    <item
-        jar="C:\Users\danie\AppData\Local\Android\sdk\extras\android\m2repository\com\android\support\support-annotations\23.0.1\support-annotations-23.0.1.jar"
-        jumboMode="false"
-        revision="23.0.1"
-        sha1="1fce89a6428c51467090d7f424e4c9c3dbd55f7e">
-        <dex dex="C:\Users\danie\AndroidStudioProjects\Asoguau\app\build\intermediates\pre-dexed\debug\support-annotations-23.0.1-95bb3c1f1a186c86101f970a7a595cf8adb9dbc2.jar" />
+        sha1="39a5b9e791662ec16a06224c50d65b29fd46c412">
+        <dex dex="/home/hanyou/AndroidStudioProjects/Asoguau/app/build/intermediates/pre-dexed/debug/classes-dfc8caad3449b4434bcd8a0fa62ca6465ce47990.jar" />
     </item>
 
 </items>

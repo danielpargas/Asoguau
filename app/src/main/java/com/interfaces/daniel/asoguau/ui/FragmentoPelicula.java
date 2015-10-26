@@ -37,7 +37,7 @@ public class FragmentoPelicula extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragmento_grupo_items, container, false);
+        View view = inflater.inflate(R.layout.fragmento_grupo_items2, container, false);
 
         reciclador = (RecyclerView) view.findViewById(R.id.reciclador);
         layoutManager = new GridLayoutManager(getActivity(), 1);

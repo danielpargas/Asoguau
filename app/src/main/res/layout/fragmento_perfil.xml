@@ -61,7 +61,7 @@
                             android:src="@drawable/email" />
 
                         <TextView
-                            android:id="@+id/texto_fnacimeinto"
+                            android:id="@+id/texto_correo"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center_vertical"
@@ -79,7 +79,7 @@
                             android:src="@drawable/telephone5" />
 
                         <TextView
-                            android:id="@+id/texto_cedula"
+                            android:id="@+id/texto_telefono"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center_vertical"

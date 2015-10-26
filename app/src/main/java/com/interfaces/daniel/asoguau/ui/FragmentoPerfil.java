@@ -1,10 +1,15 @@
 package com.interfaces.daniel.asoguau.ui;
 
+import android.app.Activity;
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import com.interfaces.daniel.asoguau.R;
 
@@ -23,8 +28,23 @@ public class FragmentoPerfil extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+
+        View view = inflater.inflate(R.layout.fragmento_perfil, container, false);
+
+        Activity activity = getActivity();
+        SharedPreferences preferences = activity.getSharedPreferences("DatosUsuario", Context.MODE_PRIVATE);
+
+        Toolbar toolbar = (Toolbar) view.findViewById(R.id.toolbar_perfil);
+        toolbar.setTitle(preferences.getString("nombre", "Usuario") + " " + preferences.getString("apellido", ""));
+
+        TextView txtCorreo = (TextView) view.findViewById(R.id.texto_correo);
+        TextView txtTelefono = (TextView) view.findViewById(R.id.texto_telefono);
+
+        txtCorreo.setText(preferences.getString("correo", "N/A"));
+        txtTelefono.setText(preferences.getString("telefono", "N/A"));
+
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragmento_perfil, container, false);
+        return view;
     }
 
 }
