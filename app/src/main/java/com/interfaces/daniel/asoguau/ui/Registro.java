@@ -30,6 +30,8 @@ import org.json.JSONObject;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class Registro extends AppCompatActivity implements
         DatePickerDialog.OnDateSetListener, View.OnClickListener {
@@ -133,6 +135,20 @@ public class Registro extends AppCompatActivity implements
 
     }
 
+    public static boolean isEmailValid(String email) {
+        boolean isValid = false;
+
+        String expression = "^[\\w\\.-]+@([\\w\\-]+\\.)+[A-Z]{2,4}$";
+        CharSequence inputStr = email;
+
+        Pattern pattern = Pattern.compile(expression, Pattern.CASE_INSENSITIVE);
+        Matcher matcher = pattern.matcher(inputStr);
+        if (matcher.matches()) {
+            isValid = true;
+        }
+        return isValid;
+    }
+
     private String nombre;
     private String apellido;
     private String telefono;
@@ -152,8 +168,45 @@ public class Registro extends AppCompatActivity implements
         clave = txtClave.getText().toString();
         correo = txtCorreo.getText().toString();
 
-        if (!nombre.isEmpty() && !apellido.isEmpty() && !telefono.isEmpty() && !clave.isEmpty() && !correo.isEmpty()
-                && clave.equals(txtClaveConf.getText().toString())) {
+        boolean error = false;
+
+        if (nombre.isEmpty()) {
+            txtNombre.setError("Ingrese Nombre");
+            error = true;
+        }
+
+        if (apellido.isEmpty()) {
+            txtApellido.setError("Ingrese Apellido");
+            error = true;
+        }
+
+        if (telefono.isEmpty()) {
+            txtTelefono.setError("Ingrese Telefono");
+            error = true;
+        }
+
+        if (clave.isEmpty()) {
+            txtClave.setError("Ingrese Clave");
+            error = true;
+        }
+
+        if (correo.isEmpty()) {
+            txtCorreo.setError("Ingrese Correo");
+            error = true;
+        }
+
+        if (!clave.equals(txtClaveConf.getText().toString()) && !error) {
+            txtClave.setError("Las Claves deben ser Iguales");
+            error = true;
+        }
+
+        if (!isEmailValid(correo) && !error) {
+            txtCorreo.setError("Correo Invalido");
+            error = true;
+        }
+
+
+        if (!error) {
 
             dialogoCarga.mostrarDialogo("Enviando Datos");
 

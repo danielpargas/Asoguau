@@ -40,7 +40,7 @@ public class FragmentoPelicula extends Fragment {
         View view = inflater.inflate(R.layout.fragmento_grupo_items, container, false);
 
         reciclador = (RecyclerView) view.findViewById(R.id.reciclador);
-        layoutManager = new GridLayoutManager(getActivity(), 2);
+        layoutManager = new GridLayoutManager(getActivity(), 1);
         reciclador.setLayoutManager(layoutManager);
 
         int indiceSeccion = getArguments().getInt(INDICE_SECCION);

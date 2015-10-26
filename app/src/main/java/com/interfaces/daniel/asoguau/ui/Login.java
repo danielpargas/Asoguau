@@ -76,7 +76,6 @@ public class Login extends AppCompatActivity implements DialogoOK.OnSimpleDialog
             @Override
             public void onClick(View v) {
 
-
                 dialogo.mostrarDialogo("Comprobando Datos");
 
                 VolleyAPI.getInstance(v.getContext()).addToRequestQueue(new MiJsonObjectRequest(

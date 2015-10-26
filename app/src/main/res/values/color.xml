@@ -12,8 +12,8 @@
     <color name="color_light">#ffffff</color>
 
     <color name="background_header_seccion_inicio">#4B4B4B</color>
-
     <color name="blanco">#F7F7F7</color>
     <color name="azul">#32B6F7</color>
     <color name="turquesa">#1dd2af</color>
+    <color name="turquesa_oscuro">#19b698</color>
 </resources>

@@ -84,7 +84,7 @@
                             android:layout_height="wrap_content"
                             android:layout_gravity="center_vertical"
                             android:layout_marginBottom="32dp"
-                            android:text="0424-0000000"
+                            android:text="numero de telefono de "
                             android:textAppearance="?android:attr/textAppearanceSmall" />
 
 

@@ -1,37 +1,84 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="1dp">
 
-    <ImageView
-        android:id="@+id/miniatura_pelicula"
-        android:layout_width="match_parent"
-        android:layout_height="192dp" />
-
-    <LinearLayout
+    <android.support.v7.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/red_ligth"
-        android:orientation="vertical"
-        android:padding="@dimen/espacio_norma_1">
 
+        card_view:cardCornerRadius="2dp"
+        card_view:cardUseCompatPadding="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:padding="1dp">
+
+            <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+                android:background="@color/blanco"
+                android:orientation="horizontal"
+                android:padding="15dp">
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/avatar2"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:layout_marginRight="16dp"
+                    android:src="@drawable/perfil" />
+
+                <LinearLayout
+                    android:layout_width="230dp"
+                    android:layout_height="wrap_content"
+                    android:background="@color/blanco"
+                    android:orientation="vertical">
         <TextView
             android:id="@+id/titulo_pelicula"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="La Dama de Negro"
+            android:text="Ofertas"
             android:textAppearance="@style/TextAppearance.AppCompat.Subhead.Inverse"
-            android:textStyle="normal|bold" />
+            android:textStyle="normal|bold"
+            android:textColor="@color/turquesa" />
 
         <TextView
             android:id="@+id/descripcion_pelicula"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Nombre"
+            android:text="DESBKJBJIBJBJBJKBJKBLLLKJBK"
+            android:textColor="#000"
             android:textAppearance="@style/TextAppearance.AppCompat.Subhead.Inverse"
             android:textSize="12sp" />
 
-    </LinearLayout>
+                    <TextView
+                        android:id="@+id/Fecha_Noticia"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Fecha"
+                        android:textColor="#000"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Subhead.Inverse"
+                        android:textSize="12sp" />
+                </LinearLayout>
+
+                <ImageView
+                    android:id="@+id/icono_derecho"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/indicador_derecho" />
+
+
+            </LinearLayout>
+
+            <ImageView
+                android:id="@+id/miniatura_pelicula"
+                android:layout_width="match_parent"
+                android:layout_height="192dp" />
+        </LinearLayout>
+    </android.support.v7.widget.CardView>
 </LinearLayout>

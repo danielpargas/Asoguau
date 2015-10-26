@@ -4,7 +4,7 @@
     <string name="action_settings">Configuración</string>
     <string name="action_search">Buscar</string>
     <string name="action_carrito">Añadir al carrito</string>
-
+    <string name="datos_personales">Datos Personales</string>
     <!-- Opcioones del Drawer -->
     <string name="item_Asoguau">Asoguao</string>
     <string name="item_Miasoguau">Mis Noticias</string>
