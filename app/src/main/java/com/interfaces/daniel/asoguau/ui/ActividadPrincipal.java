@@ -85,12 +85,13 @@ public class ActividadPrincipal extends AppCompatActivity {
             case R.id.item_cuenta:
                 // Fragmento para la sección Cuenta
                 fragmentoGenerico = new FragmentoCuenta();
-
                 break;
             case R.id.item_categorias:
                 fragmentoGenerico = new FragmentoPeliculas();
                 // Fragmento para la sección Categorías
                 break;
+            case R.id.item_Salir:
+                finish();
 
         }
 

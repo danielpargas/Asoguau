@@ -36,6 +36,7 @@ public class AdaptadorPeliculas extends RecyclerView.Adapter<AdaptadorPeliculas.
         public TextView descripcion;
         public TextView fecha;
         public ImageView imagen;
+        public ImageView imagenUsuario;
 
         public ViewHolder(View v) {
             super(v);
@@ -44,6 +45,7 @@ public class AdaptadorPeliculas extends RecyclerView.Adapter<AdaptadorPeliculas.
             descripcion = (TextView) v.findViewById(R.id.descripcion_pelicula);
             fecha = (TextView) v.findViewById(R.id.Fecha_Noticia);
             imagen = (ImageView) v.findViewById(R.id.miniatura_pelicula);
+            imagenUsuario = (ImageView) v.findViewById(R.id.avatar2);
         }
     }
 
@@ -100,6 +102,12 @@ public class AdaptadorPeliculas extends RecyclerView.Adapter<AdaptadorPeliculas.
 
         );
 
+        Glide.with(activity)
+                .load(VolleyAPI.URL_CARPETA_IMAGENES_USUARIOS + "/" + item.getIdusuario() + ".jpg")
+                .placeholder(R.drawable.perfil)
+                .error(R.drawable.perfil)
+                .dontAnimate()
+                .into(viewHolder.imagenUsuario);
 
         viewHolder.titulo.setText(item.getTitulo());
         viewHolder.descripcion.setText(item.getDescripcion().substring(0, 20) + "...");
