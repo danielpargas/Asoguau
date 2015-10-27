@@ -114,9 +114,14 @@ public class Login extends AppCompatActivity implements DialogoOK.OnSimpleDialog
 
                                         dialogo.ocultarDialogo();
 
+                                        FragmentoDialogo dialogoOk = new FragmentoDialogo();
+                                        dialogoOk.setTitulo("Error Login");
+                                        dialogoOk.setMensaje("Usuario o Clave incorrecta");
+                                        dialogoOk.setTxtBoton("Aceptar");
+
                                         FragmentManager fragmentManager = getSupportFragmentManager();
                                         fragmentManager.beginTransaction()
-                                                .add(new FragmentoDialogo(), "FragmentoDialogo")
+                                                .add(dialogoOk, "FragmentoDialogo")
                                                 .commit();
                                     }
                                 } catch (JSONException e) {

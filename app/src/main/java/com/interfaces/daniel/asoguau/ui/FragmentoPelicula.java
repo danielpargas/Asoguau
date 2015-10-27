@@ -29,7 +29,7 @@ public class FragmentoPelicula extends Fragment {
     }
 
     private static final String INDICE_SECCION
-            = "com.restaurantericoparico.FragmentoCategoriasTab.extra.INDICE_SECCION";
+            = "com.asoguau.FragmentoCategoriasTab.extra.INDICE_SECCION";
 
     private RecyclerView reciclador;
     private GridLayoutManager layoutManager;

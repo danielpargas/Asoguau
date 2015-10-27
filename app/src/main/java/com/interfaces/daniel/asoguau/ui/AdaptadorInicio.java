@@ -70,7 +70,7 @@ public class AdaptadorInicio extends RecyclerView.Adapter<AdaptadorInicio.ViewHo
          * Carga de Imagenes
          */
         VolleyAPI.getInstance(context).addToRequestQueue(new ImageRequest(
-                VolleyAPI.URL_CARPETA_IMAGENES_NOTICIAS + "/" + String.valueOf(position + 1) + ".jpg",
+                VolleyAPI.URL_CARPETA_IMAGENES_NOTICIAS + "/" + String.valueOf(items.get(position).getIdnoticia()) + ".jpg",
                 new Response.Listener<Bitmap>() {
                     @Override
                     public void onResponse(Bitmap response) {

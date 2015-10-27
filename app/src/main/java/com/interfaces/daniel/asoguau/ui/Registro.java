@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v4.app.FragmentManager;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -24,6 +25,8 @@ import com.interfaces.daniel.asoguau.R;
 import com.interfaces.daniel.asoguau.libreria.MiJsonObjectRequest;
 import com.interfaces.daniel.asoguau.libreria.VolleyAPI;
 import com.interfaces.daniel.asoguau.utilidades.DialogoCarga;
+import com.interfaces.daniel.asoguau.utilidades.DialogoOK;
+import com.interfaces.daniel.asoguau.utilidades.FragmentoDialogo;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -34,7 +37,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class Registro extends AppCompatActivity implements
-        DatePickerDialog.OnDateSetListener, View.OnClickListener {
+        DatePickerDialog.OnDateSetListener, View.OnClickListener, DialogoOK.OnSimpleDialogListener {
 
     private TextView fechaNacimiento;
     private DialogoCarga dialogoCarga;
@@ -230,6 +233,17 @@ public class Registro extends AppCompatActivity implements
 
                                     dialogoCarga.ocultarDialogo();
 
+                                    FragmentoDialogo dialogoOk = new FragmentoDialogo();
+                                    dialogoOk.setTitulo("Registro");
+                                    dialogoOk.setMensaje("Usuario Existente. Intente de nuevo con otro Usuario");
+                                    dialogoOk.setTxtBoton("Aceptar");
+
+                                    FragmentManager fragmentManager = getSupportFragmentManager();
+                                    fragmentManager
+                                            .beginTransaction()
+                                            .add(dialogoOk, "DialogoOk")
+                                            .commit();
+
                                 }
                             } catch (JSONException e) {
                                 e.printStackTrace();
@@ -265,6 +279,16 @@ public class Registro extends AppCompatActivity implements
 
         }
 
+
+    }
+
+    @Override
+    public void onPossitiveButtonClick() {
+
+    }
+
+    @Override
+    public void onNegativeButtonClick() {
 
     }
 }

@@ -16,7 +16,7 @@ public final class VolleyAPI {
 
     public static final String URL_WEBSERVICE = "http://192.168.57.1/Asoguau2/websevice";
     public static final String URL_CARPETA_IMAGENES_NOTICIAS = "http://192.168.57.1/Asoguau2/imagenes/noticia";
-    public static final String URL_CARPETA_IMAGENES_USUARIOS = "http://192.168.57.1/Asoguau2/imagenes";
+    public static final String URL_CARPETA_IMAGENES_USUARIOS = "http://192.168.57.1/Asoguau2/imagenes/usuario";
     public static final String URL_PROCESAR_LOGIN = "/ProcesarLogin.php";
     public static final String URL_NOTICIAS = "/ObtenerTodasNoticias.php";
     public static final String URL_REGISTRO = "/InsertarUsuario.php";

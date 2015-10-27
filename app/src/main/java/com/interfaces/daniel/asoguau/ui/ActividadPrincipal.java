@@ -13,9 +13,12 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.interfaces.daniel.asoguau.R;
+import com.interfaces.daniel.asoguau.libreria.VolleyAPI;
 
 public class ActividadPrincipal extends AppCompatActivity {
 
@@ -41,12 +44,21 @@ public class ActividadPrincipal extends AppCompatActivity {
 
         TextView txtNombre = (TextView) findViewById(R.id.nombre_usuario);
 
+        final ImageView circleImageView = (ImageView) findViewById(R.id.avatar2);
+
         SharedPreferences preferences = getSharedPreferences("DatosUsuario", MODE_PRIVATE);
+
         String nombre = preferences.getString("nombre", "Error");
         String apellido = preferences.getString("apellido", "Error");
 
         txtNombre.setText(nombre + " " + apellido);
 
+        Glide.with(this)
+                .load(VolleyAPI.URL_CARPETA_IMAGENES_USUARIOS + "/" + preferences.getString("idusuario", "0") + ".jpg")
+                .placeholder(R.drawable.perfil)
+                .error(R.drawable.perfil)
+                .dontAnimate()
+                .into(circleImageView);
 
     }
 

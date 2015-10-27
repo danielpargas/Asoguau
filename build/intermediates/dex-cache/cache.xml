@@ -2,11 +2,11 @@
 <items version="2" >
 
     <item
-        jar="/home/hanyou/AndroidStudioProjects/Asoguau/app/build/intermediates/exploded-aar/com.facebook.android/facebook/4.6.0/jars/classes.jar"
+        jar="/home/hanyou/AndroidStudioProjects/Asoguau/app/build/intermediates/exploded-aar/de.hdodenhof/circleimageview/2.0.0/jars/classes.jar"
         jumboMode="false"
         revision="23.0.1"
-        sha1="39a5b9e791662ec16a06224c50d65b29fd46c412">
-        <dex dex="/home/hanyou/AndroidStudioProjects/Asoguau/app/build/intermediates/pre-dexed/debug/classes-dfc8caad3449b4434bcd8a0fa62ca6465ce47990.jar" />
+        sha1="031e8b3ab2df4ab43b1017f84417d7e10dfbb8d2">
+        <dex dex="/home/hanyou/AndroidStudioProjects/Asoguau/app/build/intermediates/pre-dexed/debug/classes-dda0a1fbcdbb56634b53aa3cb8732cf6b6a1ea4a.jar" />
     </item>
 
 </items>

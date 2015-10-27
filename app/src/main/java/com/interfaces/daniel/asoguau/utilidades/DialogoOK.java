@@ -13,6 +13,10 @@ import android.support.v7.app.AlertDialog;
  */
 public class DialogoOK extends DialogFragment {
 
+    private String titulo;
+    private String mensaje;
+    private String txtBoton;
+
     public DialogoOK() {
     }
 
@@ -39,9 +43,9 @@ public class DialogoOK extends DialogFragment {
     public AlertDialog createSimpleDialog() {
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
 
-        builder.setTitle("Error al Comprobar Datos")
-                .setMessage("Usuario o Clave Incorrectos")
-                .setPositiveButton("Aceptar",
+        builder.setTitle(this.getTitulo())
+                .setMessage(this.getMensaje())
+                .setPositiveButton(this.getTxtBoton(),
                         new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
@@ -75,4 +79,27 @@ public class DialogoOK extends DialogFragment {
         }
     }
 
+    public String getTitulo() {
+        return titulo;
+    }
+
+    public void setTitulo(String titulo) {
+        this.titulo = titulo;
+    }
+
+    public String getMensaje() {
+        return mensaje;
+    }
+
+    public void setMensaje(String mensaje) {
+        this.mensaje = mensaje;
+    }
+
+    public String getTxtBoton() {
+        return txtBoton;
+    }
+
+    public void setTxtBoton(String txtBoton) {
+        this.txtBoton = txtBoton;
+    }
 }

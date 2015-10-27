@@ -75,7 +75,7 @@ public class AdaptadorPeliculas extends RecyclerView.Adapter<AdaptadorPeliculas.
 
 
         VolleyAPI.getInstance(viewHolder.itemView.getContext()).addToRequestQueue(new ImageRequest(
-                        VolleyAPI.URL_CARPETA_IMAGENES_NOTICIAS + String.valueOf(i) + ".jpg",
+                        VolleyAPI.URL_CARPETA_IMAGENES_NOTICIAS + "/" + String.valueOf(item.getIdnoticia()) + ".jpg",
                         new Response.Listener<Bitmap>() {
                             @Override
                             public void onResponse(Bitmap response) {
@@ -103,6 +103,8 @@ public class AdaptadorPeliculas extends RecyclerView.Adapter<AdaptadorPeliculas.
 
         viewHolder.titulo.setText(item.getTitulo());
         viewHolder.descripcion.setText(item.getDescripcion().substring(0, 20) + "...");
+        viewHolder.fecha.setText(item.getFecha());
+
         viewHolder.itemView.setId(i);
         viewHolder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
