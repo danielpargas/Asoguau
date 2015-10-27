@@ -2,6 +2,7 @@ package com.interfaces.daniel.asoguau.ui;
 
 import android.app.Activity;
 import android.content.Context;
+import android.graphics.Bitmap;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,10 +10,15 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.ImageRequest;
 import com.bumptech.glide.Glide;
 import com.interfaces.daniel.asoguau.R;
+import com.interfaces.daniel.asoguau.libreria.VolleyAPI;
 import com.interfaces.daniel.asoguau.modelo.Noticia;
 
+import java.io.ByteArrayOutputStream;
 import java.util.List;
 
 /**
@@ -59,11 +65,49 @@ public class AdaptadorInicio extends RecyclerView.Adapter<AdaptadorInicio.ViewHo
     @Override
     public void onBindViewHolder(final ViewHolder holder, int position) {
 
+
+        /**
+         * Carga de Imagenes
+         */
+        VolleyAPI.getInstance(context).addToRequestQueue(new ImageRequest(
+                VolleyAPI.URL_CARPETA_IMAGENES_NOTICIAS + "/" + String.valueOf(position) + ".jpg",
+                new Response.Listener<Bitmap>() {
+                    @Override
+                    public void onResponse(Bitmap response) {
+
+                        ByteArrayOutputStream stream = new ByteArrayOutputStream();
+                        response.compress(Bitmap.CompressFormat.JPEG, 100, stream);
+                        byte[] bytes = stream.toByteArray();
+
+                        Glide.with(holder.itemView.getContext())
+                                .load(bytes)
+                                .centerCrop()
+                                .into(holder.imagen);
+
+                    }
+                },
+                0, 0, null,
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+
+                        Glide.with(holder.itemView.getContext())
+                                .load(R.drawable.noticias_redes)
+                                .centerCrop()
+                                .into(holder.imagen);
+
+                    }
+                }
+        ));
+
+
+
+/*
         Glide.with(holder.itemView.getContext())
                 .load(R.drawable.noticias_redes)
                 .centerCrop()
                 .into(holder.imagen);
-
+*/
         holder.nombre.setText(items.get(position).getTitulo());
         holder.desripcion.setText(items.get(position).getResumen());
 

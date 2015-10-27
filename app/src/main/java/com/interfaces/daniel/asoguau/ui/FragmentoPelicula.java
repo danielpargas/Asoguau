@@ -9,8 +9,16 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.android.volley.Request;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
 import com.interfaces.daniel.asoguau.R;
-import com.interfaces.daniel.asoguau.modelo.Pelicula;
+import com.interfaces.daniel.asoguau.libreria.GsonRequest;
+import com.interfaces.daniel.asoguau.libreria.VolleyAPI;
+import com.interfaces.daniel.asoguau.modelo.Noticias;
+
+import java.util.HashMap;
+import java.util.Map;
 
 
 public class FragmentoPelicula extends Fragment {
@@ -45,16 +53,64 @@ public class FragmentoPelicula extends Fragment {
 
         int indiceSeccion = getArguments().getInt(INDICE_SECCION);
 
+        Map<String, String> parametros = new HashMap<String, String>();
+
         switch (indiceSeccion) {
             case 0:
-                adaptador = new AdaptadorPeliculas(Pelicula.TODAS, indiceSeccion);
+                parametros.put("idtiponoticia", String.valueOf(1));
+                VolleyAPI.getInstance(getActivity().getBaseContext()).addToRequestQueue(
+                        new GsonRequest<Noticias>(
+                                Request.Method.POST,
+                                VolleyAPI.URL_WEBSERVICE + VolleyAPI.URL_NOTICIAS,
+                                Noticias.class,
+                                null,
+                                new Response.Listener<Noticias>() {
+                                    @Override
+                                    public void onResponse(Noticias response) {
+                                        adaptador = new AdaptadorPeliculas(response.getItems(), 0);
+                                        reciclador.setAdapter(adaptador);
+                                    }
+                                },
+                                new Response.ErrorListener() {
+                                    @Override
+                                    public void onErrorResponse(VolleyError error) {
+
+                                    }
+                                },
+                                parametros
+
+                        ));
+                //adaptador = new AdaptadorPeliculas(Pelicula.TODAS, indiceSeccion);
                 break;
             case 1:
-                adaptador = new AdaptadorPeliculas(Pelicula.RECIENTES, indiceSeccion);
+                //adaptador = new AdaptadorPeliculas(Pelicula.RECIENTES, indiceSeccion);
+                parametros.put("idtiponoticia", String.valueOf(1));
+                parametros.put("recientes", "1");
+
+                VolleyAPI.getInstance(getActivity().getBaseContext()).addToRequestQueue(
+                        new GsonRequest<Noticias>(
+                                Request.Method.POST,
+                                VolleyAPI.URL_WEBSERVICE + VolleyAPI.URL_NOTICIAS,
+                                Noticias.class,
+                                null,
+                                new Response.Listener<Noticias>() {
+                                    @Override
+                                    public void onResponse(Noticias response) {
+                                        adaptador = new AdaptadorPeliculas(response.getItems(), 1);
+                                        reciclador.setAdapter(adaptador);
+                                    }
+                                },
+                                new Response.ErrorListener() {
+                                    @Override
+                                    public void onErrorResponse(VolleyError error) {
+
+                                    }
+                                },
+                                parametros
+                        ));
                 break;
         }
 
-        reciclador.setAdapter(adaptador);
 
         return view;
     }

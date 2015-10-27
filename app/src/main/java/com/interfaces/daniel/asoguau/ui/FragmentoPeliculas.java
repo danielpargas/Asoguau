@@ -61,6 +61,15 @@ public class FragmentoPeliculas extends Fragment {
         AdaptadorSecciones adapter = new AdaptadorSecciones(getFragmentManager());
         adapter.addFragment(FragmentoPelicula.nuevaInstancia(0), getString(R.string.titulo_tab_peliculas_todas));
         adapter.addFragment(FragmentoPelicula.nuevaInstancia(1), getString(R.string.titulo_tab_peliculas_recientes));
+
+/*
+        SharedPreferences preferences =  getActivity().getSharedPreferences();
+        String usuario = preferences.getString("idtipousuario", "");
+
+        if(usuario.equals(1)){
+
+        }
+*/
         viewPager.setAdapter(adapter);
     }
 

@@ -41,7 +41,7 @@ import com.facebook.share.model.SharePhoto;
 import com.facebook.share.model.SharePhotoContent;
 import com.facebook.share.widget.ShareDialog;
 import com.interfaces.daniel.asoguau.R;
-import com.interfaces.daniel.asoguau.modelo.Pelicula;
+import com.interfaces.daniel.asoguau.modelo.Noticia;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -65,7 +65,7 @@ public class DetallesPelicula extends AppCompatActivity {
      * @param activity Contexto desde donde se lanzará
      * @param title    Item a procesar
      */
-    public static void createInstance(Activity activity, Pelicula title) {
+    public static void createInstance(Activity activity, Noticia title) {
         Intent intent = getLaunchIntent(activity, title);
         activity.startActivity(intent);
     }
@@ -75,16 +75,16 @@ public class DetallesPelicula extends AppCompatActivity {
      * de detalle.
      *
      * @param context  Contexto donde se inicia
-     * @param pelicula Identificador de la chica
+     * @param noticia Identificador de la chica
      * @return Intent listo para usar
      */
-    public static Intent getLaunchIntent(Context context, Pelicula pelicula) {
+    public static Intent getLaunchIntent(Context context, Noticia noticia) {
         Intent intent = new Intent(context, DetallesPelicula.class);
-        intent.putExtra(EXTRA_NOMBRE, pelicula.getNombre());
-        intent.putExtra(EXTRA_DESCRIPCION, pelicula.getDescripcion());
-        Arrays.copyOf(pelicula.getHorarios().toArray(), pelicula.getHorarios().toArray().length, String[].class);
-        intent.putExtra(EXTRA_HORARIO, Arrays.copyOf(pelicula.getHorarios().toArray(), pelicula.getHorarios().toArray().length, String[].class));
-        intent.putExtra(EXTRA_DRAWABLE, pelicula.getIdDrawable());
+        intent.putExtra(EXTRA_NOMBRE, noticia.getTitulo());
+        intent.putExtra(EXTRA_DESCRIPCION, noticia.getDescripcion());
+        //Arrays.copyOf(noticia.getHorarios().toArray(), noticia.getHorarios().toArray().length, String[].class);
+        //intent.putExtra(EXTRA_HORARIO, Arrays.copyOf(noticia.getHorarios().toArray(), noticia.getHorarios().toArray().length, String[].class));
+        intent.putExtra(EXTRA_DRAWABLE, noticia.getIdDrawable());
         return intent;
     }
 
@@ -245,7 +245,7 @@ public class DetallesPelicula extends AppCompatActivity {
         Intent i = getIntent();
         nombre = i.getStringExtra(EXTRA_NOMBRE);
         String descripcion = i.getStringExtra(EXTRA_DESCRIPCION);
-        String[] horarios = i.getStringArrayExtra(EXTRA_HORARIO);
+        //String[] horarios = i.getStringArrayExtra(EXTRA_HORARIO);
         idDrawable = i.getIntExtra(EXTRA_DRAWABLE, -1);
 
 
@@ -255,16 +255,17 @@ public class DetallesPelicula extends AppCompatActivity {
         TextView textViewHorario = (TextView) findViewById(R.id.horario_pelicula);
 
         StringBuilder horariosAux = new StringBuilder();
-
+/*
         for (String horario :
                 horarios) {
 
             horariosAux.append(horario + "\n");
 
         }
+*/
 
-
-        textViewHorario.setText(String.valueOf(horariosAux));
+        //      textViewHorario.setText(String.valueOf(horariosAux));
+        textViewHorario.setText("");
 
 
         CollapsingToolbarLayout collapser =

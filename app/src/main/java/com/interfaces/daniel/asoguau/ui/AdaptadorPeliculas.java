@@ -10,6 +10,7 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.interfaces.daniel.asoguau.R;
+import com.interfaces.daniel.asoguau.modelo.Noticia;
 import com.interfaces.daniel.asoguau.modelo.Pelicula;
 
 import java.util.List;
@@ -20,7 +21,7 @@ import java.util.List;
 public class AdaptadorPeliculas extends RecyclerView.Adapter<AdaptadorPeliculas.ViewHolder> {
 
 
-    private final List<Pelicula> items;
+    private final List<Noticia> items;
     private final int indiceSeccion;
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
@@ -39,7 +40,7 @@ public class AdaptadorPeliculas extends RecyclerView.Adapter<AdaptadorPeliculas.
     }
 
 
-    public AdaptadorPeliculas(List<Pelicula> items, int indiceSeccion) {
+    public AdaptadorPeliculas(List<Noticia> items, int indiceSeccion) {
         this.items = items;
         this.indiceSeccion = indiceSeccion;
     }
@@ -62,12 +63,12 @@ public class AdaptadorPeliculas extends RecyclerView.Adapter<AdaptadorPeliculas.
 
     @Override
     public void onBindViewHolder(ViewHolder viewHolder, int i) {
-        final Pelicula item = items.get(i);
+        final Noticia item = items.get(i);
         Glide.with(viewHolder.itemView.getContext())
-                .load(item.getIdDrawable())
+                .load(R.drawable.noticias_redes)
                 .centerCrop()
                 .into(viewHolder.imagen);
-        viewHolder.titulo.setText(item.getNombre());
+        viewHolder.titulo.setText(item.getTitulo());
         viewHolder.descripcion.setText(item.getDescripcion().substring(0, 20) + "...");
         viewHolder.itemView.setId(i);
         viewHolder.itemView.setOnClickListener(new View.OnClickListener() {
@@ -75,16 +76,18 @@ public class AdaptadorPeliculas extends RecyclerView.Adapter<AdaptadorPeliculas.
             public void onClick(final View v) {
 
                 Pelicula peliculaActual = null;
+                Noticia noticiaActual = null;
 
                 switch (indiceSeccion) {
                     case 0:
-                        peliculaActual = Pelicula.TODAS.get(v.getId());
+                        // peliculaActual = Pelicula.TODAS.get(v.getId());
+                        noticiaActual = items.get(v.getId());
                         break;
                     case 1:
-                        peliculaActual = Pelicula.RECIENTES.get(v.getId());
+                        //peliculaActual = Pelicula.RECIENTES.get(v.getId());
                 }
 
-                DetallesPelicula.createInstance(activity, peliculaActual);
+                DetallesPelicula.createInstance(activity, noticiaActual);
             }
         });
 
