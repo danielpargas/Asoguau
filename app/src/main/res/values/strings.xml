@@ -22,6 +22,9 @@
     <string name="titulo_tab_peliculas_todas">TODAS</string>
     <string name="titulo_tab_peliculas_recientes">RECIENTES</string>
 
+    <string name="titulo_tab_asored_todas">TODAS</string>
+    <string name="titulo_tab_asored_recientes">RECIENTES</string>
+
 
     <string name="nro_servicio_tecnico">Llamanos 0-500-CINE-00</string>
 

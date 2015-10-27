@@ -59,8 +59,8 @@ public class FragmentoPeliculas extends Fragment {
 
     private void poblarViewPager(ViewPager viewPager) {
         AdaptadorSecciones adapter = new AdaptadorSecciones(getFragmentManager());
-        adapter.addFragment(FragmentoPelicula.nuevaInstancia(0), getString(R.string.titulo_tab_peliculas_todas));
-        adapter.addFragment(FragmentoPelicula.nuevaInstancia(1), getString(R.string.titulo_tab_peliculas_recientes));
+        adapter.addFragment(FragmentoPelicula.nuevaInstancia(0), getString(R.string.titulo_tab_asored_recientes));
+        adapter.addFragment(FragmentoPelicula.nuevaInstancia(1), getString(R.string.titulo_tab_asored_todas));
 
 /*
         SharedPreferences preferences =  getActivity().getSharedPreferences();

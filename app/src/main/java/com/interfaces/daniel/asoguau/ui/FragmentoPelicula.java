@@ -16,6 +16,7 @@ import com.interfaces.daniel.asoguau.R;
 import com.interfaces.daniel.asoguau.libreria.GsonRequest;
 import com.interfaces.daniel.asoguau.libreria.VolleyAPI;
 import com.interfaces.daniel.asoguau.modelo.Noticias;
+import com.interfaces.daniel.asoguau.utilidades.DialogoCarga;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -58,61 +59,50 @@ public class FragmentoPelicula extends Fragment {
         switch (indiceSeccion) {
             case 0:
                 parametros.put("idtiponoticia", String.valueOf(1));
-                VolleyAPI.getInstance(getActivity().getBaseContext()).addToRequestQueue(
-                        new GsonRequest<Noticias>(
-                                Request.Method.POST,
-                                VolleyAPI.URL_WEBSERVICE + VolleyAPI.URL_NOTICIAS,
-                                Noticias.class,
-                                null,
-                                new Response.Listener<Noticias>() {
-                                    @Override
-                                    public void onResponse(Noticias response) {
-                                        adaptador = new AdaptadorPeliculas(response.getItems(), 0);
-                                        reciclador.setAdapter(adaptador);
-                                    }
-                                },
-                                new Response.ErrorListener() {
-                                    @Override
-                                    public void onErrorResponse(VolleyError error) {
+                parametros.put("recientes", "1");
 
-                                    }
-                                },
-                                parametros
-
-                        ));
+                noticias(parametros, indiceSeccion);
                 //adaptador = new AdaptadorPeliculas(Pelicula.TODAS, indiceSeccion);
                 break;
             case 1:
-                //adaptador = new AdaptadorPeliculas(Pelicula.RECIENTES, indiceSeccion);
                 parametros.put("idtiponoticia", String.valueOf(1));
-                parametros.put("recientes", "1");
+                noticias(parametros, indiceSeccion);
+                //adaptador = new AdaptadorPeliculas(Pelicula.RECIENTES, indiceSeccion);
 
-                VolleyAPI.getInstance(getActivity().getBaseContext()).addToRequestQueue(
-                        new GsonRequest<Noticias>(
-                                Request.Method.POST,
-                                VolleyAPI.URL_WEBSERVICE + VolleyAPI.URL_NOTICIAS,
-                                Noticias.class,
-                                null,
-                                new Response.Listener<Noticias>() {
-                                    @Override
-                                    public void onResponse(Noticias response) {
-                                        adaptador = new AdaptadorPeliculas(response.getItems(), 1);
-                                        reciclador.setAdapter(adaptador);
-                                    }
-                                },
-                                new Response.ErrorListener() {
-                                    @Override
-                                    public void onErrorResponse(VolleyError error) {
-
-                                    }
-                                },
-                                parametros
-                        ));
                 break;
         }
-
-
         return view;
+    }
+
+
+    public void noticias(Map<String, String> parametros, final int posicion) {
+
+        final DialogoCarga dialogoCarga = new DialogoCarga(getActivity());
+        dialogoCarga.mostrarDialogo("Cargando Noticias");
+
+        VolleyAPI.getInstance(getActivity().getBaseContext()).addToRequestQueue(
+                new GsonRequest<Noticias>(
+                        Request.Method.POST,
+                        VolleyAPI.URL_WEBSERVICE + VolleyAPI.URL_NOTICIAS,
+                        Noticias.class,
+                        null,
+                        new Response.Listener<Noticias>() {
+                            @Override
+                            public void onResponse(Noticias response) {
+                                adaptador = new AdaptadorPeliculas(response.getItems(), posicion);
+                                reciclador.setAdapter(adaptador);
+                                dialogoCarga.ocultarDialogo();
+
+                            }
+                        },
+                        new Response.ErrorListener() {
+                            @Override
+                            public void onErrorResponse(VolleyError error) {
+                                dialogoCarga.ocultarDialogo();
+                            }
+                        },
+                        parametros
+                ));
     }
 
 }

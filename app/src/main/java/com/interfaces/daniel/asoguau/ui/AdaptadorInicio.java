@@ -17,8 +17,8 @@ import com.bumptech.glide.Glide;
 import com.interfaces.daniel.asoguau.R;
 import com.interfaces.daniel.asoguau.libreria.VolleyAPI;
 import com.interfaces.daniel.asoguau.modelo.Noticia;
+import com.interfaces.daniel.asoguau.utilidades.ProcesarImagen;
 
-import java.io.ByteArrayOutputStream;
 import java.util.List;
 
 /**
@@ -70,14 +70,14 @@ public class AdaptadorInicio extends RecyclerView.Adapter<AdaptadorInicio.ViewHo
          * Carga de Imagenes
          */
         VolleyAPI.getInstance(context).addToRequestQueue(new ImageRequest(
-                VolleyAPI.URL_CARPETA_IMAGENES_NOTICIAS + "/" + String.valueOf(position) + ".jpg",
+                VolleyAPI.URL_CARPETA_IMAGENES_NOTICIAS + "/" + String.valueOf(position + 1) + ".jpg",
                 new Response.Listener<Bitmap>() {
                     @Override
                     public void onResponse(Bitmap response) {
 
-                        ByteArrayOutputStream stream = new ByteArrayOutputStream();
-                        response.compress(Bitmap.CompressFormat.JPEG, 100, stream);
-                        byte[] bytes = stream.toByteArray();
+                        //Conversion del Bitmap en Byte Array
+
+                        byte[] bytes = ProcesarImagen.bitmapToArrayBytes(response);
 
                         Glide.with(holder.itemView.getContext())
                                 .load(bytes)
@@ -99,8 +99,6 @@ public class AdaptadorInicio extends RecyclerView.Adapter<AdaptadorInicio.ViewHo
                     }
                 }
         ));
-
-
 
 /*
         Glide.with(holder.itemView.getContext())

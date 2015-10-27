@@ -1,6 +1,7 @@
 package com.interfaces.daniel.asoguau.ui;
 
 import android.app.Activity;
+import android.graphics.Bitmap;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -8,10 +9,15 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.ImageRequest;
 import com.bumptech.glide.Glide;
 import com.interfaces.daniel.asoguau.R;
+import com.interfaces.daniel.asoguau.libreria.VolleyAPI;
 import com.interfaces.daniel.asoguau.modelo.Noticia;
 import com.interfaces.daniel.asoguau.modelo.Pelicula;
+import com.interfaces.daniel.asoguau.utilidades.ProcesarImagen;
 
 import java.util.List;
 
@@ -28,6 +34,7 @@ public class AdaptadorPeliculas extends RecyclerView.Adapter<AdaptadorPeliculas.
         // Campos respectivos de un item
         public TextView titulo;
         public TextView descripcion;
+        public TextView fecha;
         public ImageView imagen;
 
         public ViewHolder(View v) {
@@ -35,6 +42,7 @@ public class AdaptadorPeliculas extends RecyclerView.Adapter<AdaptadorPeliculas.
 
             titulo = (TextView) v.findViewById(R.id.titulo_pelicula);
             descripcion = (TextView) v.findViewById(R.id.descripcion_pelicula);
+            fecha = (TextView) v.findViewById(R.id.Fecha_Noticia);
             imagen = (ImageView) v.findViewById(R.id.miniatura_pelicula);
         }
     }
@@ -62,12 +70,37 @@ public class AdaptadorPeliculas extends RecyclerView.Adapter<AdaptadorPeliculas.
     }
 
     @Override
-    public void onBindViewHolder(ViewHolder viewHolder, int i) {
+    public void onBindViewHolder(final ViewHolder viewHolder, int i) {
         final Noticia item = items.get(i);
-        Glide.with(viewHolder.itemView.getContext())
-                .load(R.drawable.noticias_redes)
-                .centerCrop()
-                .into(viewHolder.imagen);
+
+
+        VolleyAPI.getInstance(viewHolder.itemView.getContext()).addToRequestQueue(new ImageRequest(
+                        VolleyAPI.URL_CARPETA_IMAGENES_NOTICIAS + String.valueOf(i) + ".jpg",
+                        new Response.Listener<Bitmap>() {
+                            @Override
+                            public void onResponse(Bitmap response) {
+                                byte[] bytes = ProcesarImagen.bitmapToArrayBytes(response);
+                                Glide.with(viewHolder.itemView.getContext())
+                                        .load(bytes)
+                                        .centerCrop()
+                                        .into(viewHolder.imagen);
+                            }
+                        },
+                        0, 0, null,
+                        new Response.ErrorListener() {
+                            @Override
+                            public void onErrorResponse(VolleyError error) {
+                                Glide.with(viewHolder.itemView.getContext())
+                                        .load(R.drawable.noticias_redes)
+                                        .centerCrop()
+                                        .into(viewHolder.imagen);
+                            }
+                        }
+                )
+
+        );
+
+
         viewHolder.titulo.setText(item.getTitulo());
         viewHolder.descripcion.setText(item.getDescripcion().substring(0, 20) + "...");
         viewHolder.itemView.setId(i);
@@ -84,6 +117,7 @@ public class AdaptadorPeliculas extends RecyclerView.Adapter<AdaptadorPeliculas.
                         noticiaActual = items.get(v.getId());
                         break;
                     case 1:
+                        noticiaActual = items.get(v.getId());
                         //peliculaActual = Pelicula.RECIENTES.get(v.getId());
                 }
 
