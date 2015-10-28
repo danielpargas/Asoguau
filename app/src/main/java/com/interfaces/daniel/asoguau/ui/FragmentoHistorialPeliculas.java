@@ -1,7 +1,10 @@
 package com.interfaces.daniel.asoguau.ui;
 
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -13,7 +16,7 @@ import com.interfaces.daniel.asoguau.R;
 /**
  * Created by hanyou on 16/09/15.
  */
-public class FragmentoHistorialPeliculas extends Fragment {
+public class FragmentoHistorialPeliculas extends Fragment implements View.OnClickListener {
 
     private LinearLayoutManager layoutManager;
 
@@ -40,8 +43,24 @@ public class FragmentoHistorialPeliculas extends Fragment {
         recilcador.setAdapter(adaptador);
         recilcador.addItemDecoration(new DecoracionLineaDivisoria(getActivity()));
 
+        FloatingActionButton agregar = (FloatingActionButton) view.findViewById(R.id.mas);
+        agregar.setOnClickListener(this);
+
         return view;
     }
 
 
+    @Override
+    public void onClick(View v) {
+
+        DialogoNoticia noticia = new DialogoNoticia();
+
+        FragmentManager fragmentManager = getFragmentManager();
+
+        FragmentTransaction transaction = fragmentManager.beginTransaction();
+        transaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
+        transaction.add(android.R.id.content, noticia, "DialogoNoticia")
+                .addToBackStack(null)
+                .commit();
+    }
 }
