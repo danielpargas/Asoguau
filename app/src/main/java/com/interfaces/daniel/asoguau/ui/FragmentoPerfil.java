@@ -2,8 +2,10 @@ package com.interfaces.daniel.asoguau.ui;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
@@ -23,6 +25,8 @@ public class FragmentoPerfil extends Fragment {
         // Required empty public constructor
     }
 
+    private FloatingActionButton editar;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,6 +38,15 @@ public class FragmentoPerfil extends Fragment {
 
         View view = inflater.inflate(R.layout.fragmento_perfil, container, false);
 
+        editar = (FloatingActionButton) view.findViewById(R.id.fab_perfil);
+        editar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), ActualizarPerfil.class);
+                startActivity(intent);
+            }
+        });
+
         Activity activity = getActivity();
         SharedPreferences preferences = activity.getSharedPreferences("DatosUsuario", Context.MODE_PRIVATE);
 
@@ -43,7 +56,7 @@ public class FragmentoPerfil extends Fragment {
                 .load(VolleyAPI.URL_CARPETA_IMAGENES_USUARIOS + "/" + preferences.getString("idusuario", "0") + ".jpg")
                 .placeholder(R.drawable.perfil)
                 .error(R.drawable.perfil)
-                .dontAnimate()
+                .crossFade()
                 .into(imagen);
 
 /*

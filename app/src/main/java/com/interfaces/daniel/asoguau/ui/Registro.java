@@ -248,8 +248,6 @@ public class Registro extends AppCompatActivity implements
                             } catch (JSONException e) {
                                 e.printStackTrace();
                             }
-
-
                         }
                     },
                     new Response.ErrorListener() {

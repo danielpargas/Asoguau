@@ -1,10 +1,10 @@
 package com.interfaces.daniel.asoguau.ui;
 
 
-import android.app.Dialog;
-import android.app.Fragment;
 import android.os.Bundle;
-import android.support.v4.app.DialogFragment;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
@@ -13,27 +13,28 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.Window;
 
 import com.interfaces.daniel.asoguau.R;
 
 /**
  * A simple {@link Fragment} subclass.
  */
-public class DialogoNoticia extends DialogFragment {
+public class DialogoNoticia extends Fragment {
 
 
     public DialogoNoticia() {
         // Required empty public constructor
     }
 
-    @Override
-    public Dialog onCreateDialog(Bundle savedInstanceState) {
-        Dialog dialog = super.onCreateDialog(savedInstanceState);
-        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
-        return dialog;
-    }
+    /*
+        @Override
+        public Dialog onCreateDialog(Bundle savedInstanceState) {
+            Dialog dialog = super.onCreateDialog(savedInstanceState);
+            dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+            return dialog;
+        }
 
+    */
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -49,6 +50,23 @@ public class DialogoNoticia extends DialogFragment {
 
     }
 
+    public void show(FragmentManager fragmentManager) {
+        FragmentTransaction transaction = fragmentManager.beginTransaction();
+        String tag = DialogoNoticia.class.getName();
+        transaction
+                .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
+                .replace(R.id.contenedor_principal, this, tag)
+                .commit();
+    }
+
+    public void dimiss() {
+        FragmentTransaction transaction = getFragmentManager().beginTransaction();
+        transaction
+                .remove(this)
+                .commit();
+    }
+
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -58,7 +76,7 @@ public class DialogoNoticia extends DialogFragment {
 
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
-        inflater.inflate(R.menu.menu_dialogo_noticia, menu);
+        inflater.inflate(R.menu.menu_nueva_noticia, menu);
     }
 
     @Override
@@ -68,7 +86,7 @@ public class DialogoNoticia extends DialogFragment {
         switch (id) {
             case android.R.id.home:
                 break;
-            case R.id.action_save:
+            case R.id.action_send:
                 break;
         }
 

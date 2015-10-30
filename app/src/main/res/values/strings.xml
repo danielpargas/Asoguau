@@ -4,10 +4,10 @@
     <string name="action_settings">Configuración</string>
     <string name="action_search">Buscar</string>
     <string name="action_carrito">Añadir al carrito</string>
-    <string name="datos_personales">Datos Personales</string>
+
     <!-- Opcioones del Drawer -->
     <string name="item_Asoguau">Asoguao</string>
-    <string name="item_Miasoguau">Mis Noticias</string>
+    <string name="item_Miasoguau">Mi Cuenta</string>
     <string name="item_Asored">Asored</string>
     <string name="item_configuracion">Configuración</string>
 
@@ -15,8 +15,8 @@
 
     <!-- Tabs Cuenta -->
     <string name="titulo_tab_perfil">PERFIL</string>
-    <string name="titulo_tab_historial">HISTORIAL</string>
-    <string name="titulo_tab_contacto">CONTACTO</string>
+    <string name="titulo_tab_noticias">NOTICIAS</string>
+    <string name="titulo_tab_donacion">DONACIONES</string>
 
     <!-- Tabs Peliculas -->
     <string name="titulo_tab_peliculas_todas">TODAS</string>
@@ -25,14 +25,13 @@
     <string name="titulo_tab_asored_todas">TODAS</string>
     <string name="titulo_tab_asored_recientes">RECIENTES</string>
 
-
     <string name="nro_servicio_tecnico">Llamanos 0-500-CINE-00</string>
 
     <string name="nombre_usuario_default">Administrador</string>
 
     <string name="texto_cambiar_contrasena">Cambia tu contraseña</string>
     <string name="etiqueta_contrasena">Contraseña</string>
-    <string name="etiqueta_info_usuario">Información del usuario</string>
+    <string name="datos_personales">Datos Personales</string>
 
     <string-array name="Horario">
         <item>Carabobo - Sambil - 4:00pm - 6:00pm</item>
@@ -73,5 +72,7 @@
     <string name="exception">Exception: %1$s</string>
     <string name="title_activity_prueba">prueba</string>
     <string name="action_save">Guardar</string>
+    <string name="title_activity_agregar_noticia">AgregarNoticia</string>
+    <string name="action_send">Enviar</string>
 
 </resources>

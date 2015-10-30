@@ -1,10 +1,9 @@
 package com.interfaces.daniel.asoguau.ui;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentTransaction;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -53,14 +52,14 @@ public class FragmentoHistorialPeliculas extends Fragment implements View.OnClic
     @Override
     public void onClick(View v) {
 
-        DialogoNoticia noticia = new DialogoNoticia();
-
-        FragmentManager fragmentManager = getFragmentManager();
-
+        Intent intent = new Intent(v.getContext(), NuevaNoticia.class);
+        startActivity(intent);
+/*
         FragmentTransaction transaction = fragmentManager.beginTransaction();
         transaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
         transaction.add(android.R.id.content, noticia, "DialogoNoticia")
                 .addToBackStack(null)
                 .commit();
+*/
     }
 }

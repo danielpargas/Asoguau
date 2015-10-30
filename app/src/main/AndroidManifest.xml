@@ -9,11 +9,10 @@
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:theme="@style/Theme.CinesUnidos">
-
         <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
         <activity
-            android:name="com.interfaces.daniel.asoguau.ui.Login"
+            android:name=".ui.Login"
             android:label="@string/title_activity_login"
             android:theme="@style/Theme.ConNavigationDrawer">
             <intent-filter>
@@ -23,21 +22,21 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.interfaces.daniel.asoguau.ui.ActividadPrincipal"
+            android:name=".ui.ActividadPrincipal"
             android:label="@string/app_name"
-            android:theme="@style/Theme.ConNavigationDrawer"></activity>
-        <activity android:name="com.interfaces.daniel.asoguau.ui.DetallesPelicula" />
+            android:theme="@style/Theme.ConNavigationDrawer" />
+        <activity android:name=".ui.DetallesPelicula" />
         <activity
-            android:name="com.interfaces.daniel.asoguau.ui.Registro"
-            android:label="@string/title_activity_registro"></activity>
+            android:name=".ui.Registro"
+            android:label="@string/title_activity_registro" />
         <activity
-            android:name="com.interfaces.daniel.asoguau.ui.ProcesarCompra"
-            android:label="@string/title_activity_procesar_compra"></activity>
+            android:name=".ui.ProcesarCompra"
+            android:label="@string/title_activity_procesar_compra" />
         <activity
             android:name="com.facebook.FacebookActivity"
             android:configChanges="keyboard|keyboardHidden|screenLayout|screenSize|orientation"
-            android:theme="@android:style/Theme.Translucent.NoTitleBar"
-            android:label="@string/app_name" />
+            android:label="@string/app_name"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
 
         <meta-data
             android:name="com.facebook.sdk.ApplicationId"
@@ -47,14 +46,22 @@
             android:value="@string/facebook_app_name" />
 
         <provider
-            android:authorities="com.facebook.app.FacebookContentProvider355198514515820"
             android:name="com.facebook.FacebookContentProvider"
+            android:authorities="com.facebook.app.FacebookContentProvider355198514515820"
             android:exported="true" />
-        <receiver android:name="com.interfaces.daniel.asoguau.ui.HelloFacebookBroadcastReceiver">
+
+        <receiver android:name=".ui.HelloFacebookBroadcastReceiver">
             <intent-filter>
                 <action android:name="com.facebook.platform.AppCallResultBroadcast" />
             </intent-filter>
         </receiver>
+
+        <activity
+            android:name=".ui.AgregarNoticia"
+            android:label="@string/title_activity_agregar_noticia"
+            android:theme="@style/Theme.CinesUnidos"></activity>
+        <activity android:name=".ui.ActualizarPerfil"></activity>
+        <activity android:name=".ui.NuevaNoticia"></activity>
     </application>
 
 </manifest>
