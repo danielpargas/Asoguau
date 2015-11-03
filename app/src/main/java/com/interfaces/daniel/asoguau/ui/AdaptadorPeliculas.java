@@ -110,7 +110,11 @@ public class AdaptadorPeliculas extends RecyclerView.Adapter<AdaptadorPeliculas.
                 .into(viewHolder.imagenUsuario);
 
         viewHolder.titulo.setText(item.getTitulo());
-        viewHolder.descripcion.setText(item.getDescripcion().substring(0, 20) + "...");
+        if (item.getDescripcion().length() > 20) {
+            viewHolder.descripcion.setText(item.getDescripcion().substring(0, 20) + "...");
+        } else {
+            viewHolder.descripcion.setText(item.getDescripcion());
+        }
         viewHolder.fecha.setText(item.getFecha());
 
         viewHolder.itemView.setId(i);

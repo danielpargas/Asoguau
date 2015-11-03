@@ -1,5 +1,6 @@
 package com.interfaces.daniel.asoguau.ui;
 
+import android.content.Context;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,6 +10,9 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.interfaces.daniel.asoguau.R;
+import com.interfaces.daniel.asoguau.libreria.GsonRequest;
+import com.interfaces.daniel.asoguau.libreria.VolleyAPI;
+import com.interfaces.daniel.asoguau.modelo.Noticia;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -23,7 +27,7 @@ public class AdaptadorHistorialPeliculas
     public static class ViewHolder extends RecyclerView.ViewHolder {
         // Campos respectivos de un item
         public TextView titulo;
-        public TextView nroReferencia;
+        //public TextView nroReferencia;
         public TextView horario;
         public TextView fechaCompra;
         public ImageView imagen;
@@ -31,7 +35,7 @@ public class AdaptadorHistorialPeliculas
         public ViewHolder(View v) {
             super(v);
             titulo = (TextView) v.findViewById(R.id.texto_titulo_pelicula);
-            nroReferencia = (TextView) v.findViewById(R.id.texto_nro_referencia);
+            //  nroReferencia = (TextView) v.findViewById(R.id.texto_nro_referencia);
             horario = (TextView) v.findViewById(R.id.texto_horario);
             fechaCompra = (TextView) v.findViewById(R.id.texto_fecha_compra);
             imagen = (ImageView) v.findViewById(R.id.miniatura_pelicula);
@@ -39,31 +43,45 @@ public class AdaptadorHistorialPeliculas
     }
 
 
+    private List<Noticia> items;
+    private Context context;
+
     public AdaptadorHistorialPeliculas() {
+    }
+
+    public AdaptadorHistorialPeliculas(List<Noticia> items, Context context) {
+        this.items = items;
+        this.context = context;
     }
 
     @Override
     public int getItemCount() {
-        return HistorialCompra.HISTORIAL.size();
+        return items.size();
     }
 
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
         View v = LayoutInflater.from(viewGroup.getContext())
                 .inflate(R.layout.item_lista_historial_peliculas, viewGroup, false);
+        context = v.getContext();
         return new ViewHolder(v);
     }
 
     @Override
     public void onBindViewHolder(ViewHolder viewHolder, int i) {
-        HistorialCompra item = HistorialCompra.HISTORIAL.get(i);
+
+        Noticia item = items.get(i);
         viewHolder.titulo.setText(item.getTitulo());
-        viewHolder.nroReferencia.setText(item.getReferencia());
-        viewHolder.horario.setText(item.getHorario());
-        viewHolder.fechaCompra.setText(item.getFechaCompra());
+        //viewHolder.nroReferencia.setText(item.getReferencia());
+        viewHolder.horario.setText(item.getDescripcion());
+        viewHolder.fechaCompra.setText(item.getFecha() + " " + item.getHora());
 
         Glide.with(viewHolder.itemView.getContext())
-                .load(item.getIdDrawable())
+                .load(VolleyAPI.URL_CARPETA_IMAGENES_NOTICIAS + "/" + item.getIdnoticia() + ".jpg")
+                .placeholder(R.drawable.perfil)
+                .error(R.drawable.perfil)
+                .centerCrop()
+                .crossFade(1000)
                 .into(viewHolder.imagen);
     }
 

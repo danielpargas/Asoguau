@@ -2,18 +2,95 @@
 <items version="2" >
 
     <item
-        jar="C:\Users\danie\AndroidStudioProjects\Asoguau\app\build\intermediates\exploded-aar\de.hdodenhof\circleimageview\2.0.0\jars\classes.jar"
+        jar="/home/hanyou/.gradle/caches/modules-2/files-2.1/com.github.bumptech.glide/glide/3.6.1/86b122e640af09b0723e1fa44083c354ba6d9089/glide-3.6.1.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="86b122e640af09b0723e1fa44083c354ba6d9089">
+        <dex dex="/home/hanyou/AndroidStudioProjects/Asoguau/app/build/intermediates/pre-dexed/debug/glide-3.6.1-a4539719463524a7d83934074cdda16f19577d0b.jar" />
+    </item>
+    <item
+        jar="/home/hanyou/AndroidStudioProjects/Asoguau/app/build/intermediates/exploded-aar/com.android.support/design/23.0.1/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="e5c61a3169221a89654ffcaaed47bba51cf071ad">
+        <dex dex="/home/hanyou/AndroidStudioProjects/Asoguau/app/build/intermediates/pre-dexed/debug/classes-341f70a38d34d4ef8c80724bcae2a43cb66d7cd9.jar" />
+    </item>
+    <item
+        jar="/home/hanyou/AndroidStudioProjects/Asoguau/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.0.1/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="c31e21b53ff2f74664e498248d01453a32e32d48">
+        <dex dex="/home/hanyou/AndroidStudioProjects/Asoguau/app/build/intermediates/pre-dexed/debug/classes-e88a26d762504195182e9ccb01e0fd652dfae452.jar" />
+    </item>
+    <item
+        jar="/home/hanyou/AndroidStudioProjects/Asoguau/app/build/intermediates/exploded-aar/com.facebook.android/facebook/4.6.0/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="a0497d910ca3bf0efb9451132b9da066e81350fe">
+        <dex dex="/home/hanyou/AndroidStudioProjects/Asoguau/app/build/intermediates/pre-dexed/debug/classes-dfc8caad3449b4434bcd8a0fa62ca6465ce47990.jar" />
+    </item>
+    <item
+        jar="/home/hanyou/AndroidStudioProjects/Asoguau/app/build/intermediates/exploded-aar/de.hdodenhof/circleimageview/2.0.0/jars/classes.jar"
         jumboMode="false"
         revision="23.0.1"
         sha1="031e8b3ab2df4ab43b1017f84417d7e10dfbb8d2">
-        <dex dex="C:\Users\danie\AndroidStudioProjects\Asoguau\app\build\intermediates\pre-dexed\debug\classes-2e46da4ed08f7e03d60421f000b1d59608baf904.jar" />
+        <dex dex="/home/hanyou/AndroidStudioProjects/Asoguau/app/build/intermediates/pre-dexed/debug/classes-dda0a1fbcdbb56634b53aa3cb8732cf6b6a1ea4a.jar" />
     </item>
     <item
-        jar="C:\Users\danie\AndroidStudioProjects\Asoguau\app\build\intermediates\exploded-aar\com.facebook.android\facebook\4.6.0\jars\classes.jar"
+        jar="/home/hanyou/Android/Sdk/extras/android/m2repository/com/android/support/support-annotations/23.0.1/support-annotations-23.0.1.jar"
         jumboMode="false"
         revision="23.0.1"
-        sha1="c2c25aa4db0c16258a01d0c73135918f4ab53b6a">
-        <dex dex="C:\Users\danie\AndroidStudioProjects\Asoguau\app\build\intermediates\pre-dexed\debug\classes-b984179ae61ee67037dadb537f73ad2cc1d2e7fd.jar" />
+        sha1="1fce89a6428c51467090d7f424e4c9c3dbd55f7e">
+        <dex dex="/home/hanyou/AndroidStudioProjects/Asoguau/app/build/intermediates/pre-dexed/debug/support-annotations-23.0.1-b1241e064be8eec78a7ba5ef919daf0429e4477a.jar" />
+    </item>
+    <item
+        jar="/home/hanyou/.gradle/caches/modules-2/files-2.1/com.parse.bolts/bolts-android/1.2.0/6ee2953ccf51ce72b6d548c30c4633b99eb4f9dd/bolts-android-1.2.0.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="6ee2953ccf51ce72b6d548c30c4633b99eb4f9dd">
+        <dex dex="/home/hanyou/AndroidStudioProjects/Asoguau/app/build/intermediates/pre-dexed/debug/bolts-android-1.2.0-ccfc48c8bfa65d3a8b452d6af8f22292ebdb2555.jar" />
+    </item>
+    <item
+        jar="/home/hanyou/.gradle/caches/modules-2/files-2.1/com.google.code.gson/gson/2.4/695b63d702f505b9b916e02272e3b6381bade7f/gson-2.4.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="0695b63d702f505b9b916e02272e3b6381bade7f">
+        <dex dex="/home/hanyou/AndroidStudioProjects/Asoguau/app/build/intermediates/pre-dexed/debug/gson-2.4-378e054fc5cb1bb9d8fbb05ac1c3abf296444bc6.jar" />
+    </item>
+    <item
+        jar="/home/hanyou/AndroidStudioProjects/Asoguau/app/build/intermediates/exploded-aar/com.android.support/recyclerview-v7/23.0.1/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="4356e230a981d1bbf047d848b91bc0d9b7c5bacc">
+        <dex dex="/home/hanyou/AndroidStudioProjects/Asoguau/app/build/intermediates/pre-dexed/debug/classes-d48bf0a9f724024db940e1367b2dfe441b78ae29.jar" />
+    </item>
+    <item
+        jar="/home/hanyou/AndroidStudioProjects/Asoguau/app/build/intermediates/exploded-aar/com.android.support/cardview-v7/23.0.1/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="39ae02ce40c3ac828abbf780ce0ff5d7a28b7d6a">
+        <dex dex="/home/hanyou/AndroidStudioProjects/Asoguau/app/build/intermediates/pre-dexed/debug/classes-2afd5c0348b6d493effb537c37f4ef9bda3b4f83.jar" />
+    </item>
+    <item
+        jar="/home/hanyou/AndroidStudioProjects/Asoguau/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.0.1/jars/libs/internal_impl-23.0.1.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="aa92916125166649d8ad4ba3940c3dd7515596d3">
+        <dex dex="/home/hanyou/AndroidStudioProjects/Asoguau/app/build/intermediates/pre-dexed/debug/internal_impl-23.0.1-de4b5ccdea3384a3a49bb171e6f740529067acee.jar" />
+    </item>
+    <item
+        jar="/home/hanyou/.gradle/caches/modules-2/files-2.1/com.mcxiaoke.volley/library/1.0.19/a8f23f65fc1e522ee4a1a697ee569901a46741fa/library-1.0.19.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="a8f23f65fc1e522ee4a1a697ee569901a46741fa">
+        <dex dex="/home/hanyou/AndroidStudioProjects/Asoguau/app/build/intermediates/pre-dexed/debug/library-1.0.19-70963574f02576bb60ddd9b470cb1414301574f7.jar" />
+    </item>
+    <item
+        jar="/home/hanyou/AndroidStudioProjects/Asoguau/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="d86429b0f0b3f3cafbeb78dda1b9d89119ccb05d">
+        <dex dex="/home/hanyou/AndroidStudioProjects/Asoguau/app/build/intermediates/pre-dexed/debug/classes-343372d3dd54680d89369f40f237e6412cd63dbc.jar" />
     </item>
 
 </items>

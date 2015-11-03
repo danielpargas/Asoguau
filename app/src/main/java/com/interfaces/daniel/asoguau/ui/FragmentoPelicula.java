@@ -58,14 +58,14 @@ public class FragmentoPelicula extends Fragment {
 
         switch (indiceSeccion) {
             case 0:
-                parametros.put("idtiponoticia", String.valueOf(1));
+                parametros.put("idtiponoticia", String.valueOf(2));
                 parametros.put("recientes", "1");
 
                 noticias(parametros, indiceSeccion);
                 //adaptador = new AdaptadorPeliculas(Pelicula.TODAS, indiceSeccion);
                 break;
             case 1:
-                parametros.put("idtiponoticia", String.valueOf(1));
+                parametros.put("idtiponoticia", String.valueOf(2));
                 noticias(parametros, indiceSeccion);
                 //adaptador = new AdaptadorPeliculas(Pelicula.RECIENTES, indiceSeccion);
 

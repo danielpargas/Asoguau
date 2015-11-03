@@ -24,7 +24,7 @@
         <item
             android:id="@+id/item_ayuda"
             android:icon="@drawable/ayuda"
-            android:title="Ayuda" />
+            android:title="Contacto" />
 
 
         <item

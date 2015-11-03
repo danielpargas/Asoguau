@@ -1,18 +1,32 @@
 package com.interfaces.daniel.asoguau.ui;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
+import com.android.volley.AuthFailureError;
+import com.android.volley.Request;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
 import com.interfaces.daniel.asoguau.R;
+import com.interfaces.daniel.asoguau.libreria.MiJsonObjectRequest;
+import com.interfaces.daniel.asoguau.libreria.VolleyAPI;
 import com.interfaces.daniel.asoguau.utilidades.DialogoOK;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.HashMap;
+import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -97,13 +111,79 @@ public class ActualizarPerfil extends AppCompatActivity implements View.OnClickL
         }
 
         if (!error) {
-            DialogoOK dialogoOK = new DialogoOK();
 
-            dialogoOK.setTitulo("Perfil");
-            dialogoOK.setMensaje("Perfil Actualizado con Exito");
-            dialogoOK.setTxtBoton("Entendido");
+            VolleyAPI.getInstance(this).addToRequestQueue(new MiJsonObjectRequest(
+                    Request.Method.POST,
+                    VolleyAPI.URL_WEBSERVICE + VolleyAPI.URL_ACTUALIZAR_PERFIL,
+                    null,
+                    new Response.Listener<JSONObject>() {
+                        @Override
+                        public void onResponse(JSONObject response) {
+                            try {
+                                Log.d("USUARIO", response.getString("estatus"))
+                                ;
+                                if (response.getInt("estatus") == 1) {
 
-            dialogoOK.show(getSupportFragmentManager(), DialogoOK.class.getName());
+                                    SharedPreferences preferences = activity.getSharedPreferences("DatosUsuario", MODE_PRIVATE);
+                                    SharedPreferences.Editor editor = preferences.edit();
+
+                                    editor.putString("nombre", nombre.getText().toString().trim());
+                                    editor.putString("apellido", apellido.getText().toString().trim());
+                                    editor.putString("correo", correo.getText().toString().trim());
+                                    editor.putString("telefono", telefono.getText().toString().trim());
+
+                                    editor.commit();
+
+                                    DialogoOK dialogoOK = new DialogoOK();
+
+                                    dialogoOK.setTitulo("Perfil");
+                                    dialogoOK.setMensaje("Perfil Actualizado con Exito");
+                                    dialogoOK.setTxtBoton("Entendido");
+
+                                    dialogoOK.show(getSupportFragmentManager(), DialogoOK.class.getName());
+                                } else {
+                                    new Thread(new Runnable() {
+                                        @Override
+                                        public void run() {
+                                            Toast.makeText(activity, "Usuario Existente Intente de Nuevo", Toast.LENGTH_LONG).show();
+                                        }
+                                    }).run();
+                                }
+                            } catch (JSONException e) {
+                                e.printStackTrace();
+                            }
+                        }
+                    },
+                    new Response.ErrorListener() {
+                        @Override
+                        public void onErrorResponse(VolleyError error) {
+                            DialogoOK dialogoOK = new DialogoOK();
+
+                            dialogoOK.setTitulo("Perfil");
+                            dialogoOK.setMensaje("Error al Actualizar Perfil");
+                            dialogoOK.setTxtBoton("Entendido");
+
+                            dialogoOK.show(getSupportFragmentManager(), DialogoOK.class.getName());
+                        }
+                    }
+            ) {
+                @Override
+                protected Map<String, String> getParams() throws AuthFailureError {
+                    Map<String, String> parametros = new HashMap<String, String>();
+
+                    SharedPreferences preferences = activity.getSharedPreferences("DatosUsuario", Context.MODE_PRIVATE);
+
+                    parametros.put("idusuario", preferences.getString("idusuario", String.valueOf(0)));
+                    parametros.put("nombre", nombre.getText().toString().trim());
+                    parametros.put("apellido", apellido.getText().toString().trim());
+                    parametros.put("correo", correo.getText().toString().trim());
+                    parametros.put("telefono", telefono.getText().toString().trim());
+
+                    return parametros;
+                }
+            });
+
+
         }
 
     }

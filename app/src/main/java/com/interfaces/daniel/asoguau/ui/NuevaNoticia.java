@@ -1,8 +1,10 @@
 package com.interfaces.daniel.asoguau.ui;
 
+import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
@@ -13,19 +15,41 @@ import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Base64;
+import android.util.Log;
 import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.Toast;
 
+import com.android.volley.AuthFailureError;
+import com.android.volley.Request;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
 import com.bumptech.glide.Glide;
 import com.interfaces.daniel.asoguau.R;
+import com.interfaces.daniel.asoguau.libreria.MiJsonObjectRequest;
+import com.interfaces.daniel.asoguau.libreria.VolleyAPI;
+import com.interfaces.daniel.asoguau.utilidades.ProcesarImagen;
+
+import org.json.JSONObject;
 
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
 
 public class NuevaNoticia extends AppCompatActivity {
+
+    private String encodedImage;
+    private EditText titulo;
+    private EditText descripcion;
+    private Activity activity = this;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,6 +74,11 @@ public class NuevaNoticia extends AppCompatActivity {
         });
 
         imageView = (ImageView) findViewById(R.id.imagen_noticia);
+        titulo = (EditText) findViewById(R.id.texto_titulo);
+        descripcion = (EditText) findViewById(R.id.texto_descripcion);
+
+
+
         imageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -131,7 +160,26 @@ public class NuevaNoticia extends AppCompatActivity {
             case SELECT_PICTURE:
                 if (resultCode == RESULT_OK) {
                     Uri path = data.getData();
-                    imageView.setImageURI(path);
+                    //Log.d("IMAGEN SELECCIONADA", path.getPath());
+
+                    Bitmap imagen = null;
+
+                    try {
+                        imagen = MediaStore.Images.Media.getBitmap(getContentResolver(), path);
+
+                        byte[] byteArray = ProcesarImagen.bitmapToArrayBytes(imagen);
+                        ;
+
+                        encodedImage = Base64.encodeToString(byteArray, Base64.NO_WRAP);
+                        Log.d("IMAGEN", encodedImage);
+
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+
+                    //decodeBitmap(data.getDataString());
+                    //ConvertitBase64(data.getDataString());
+                    imageView.setImageBitmap(imagen);
                 }
                 break;
         }
@@ -161,7 +209,7 @@ public class NuevaNoticia extends AppCompatActivity {
         bm.compress(Bitmap.CompressFormat.JPEG, 100, baos);
         byte[] b = baos.toByteArray();
 
-        String encodedImage = Base64.encodeToString(b, Base64.DEFAULT);
+        encodedImage = Base64.encodeToString(b, Base64.DEFAULT);
 
         return encodedImage;
     }
@@ -173,4 +221,69 @@ public class NuevaNoticia extends AppCompatActivity {
         return true;
     }
 
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+
+        int id = item.getItemId();
+
+        final SharedPreferences preferences = getSharedPreferences("DatosUsuario", MODE_PRIVATE);
+
+
+        switch (id) {
+            case R.id.action_send:
+                activity.finish();
+                new Thread(new Runnable() {
+                    @Override
+                    public void run() {
+                        Toast.makeText(activity, "La noticia se esta enviando", Toast.LENGTH_LONG).show();
+                    }
+                }).run();
+                VolleyAPI.getInstance(this).addToRequestQueue(new MiJsonObjectRequest(
+                        Request.Method.POST,
+                        VolleyAPI.URL_WEBSERVICE + VolleyAPI.URL_INSERTAR_NOTICIAS,
+                        null,
+                        new Response.Listener<JSONObject>() {
+                            @Override
+                            public void onResponse(JSONObject response) {
+
+                                new Thread(new Runnable() {
+                                    @Override
+                                    public void run() {
+                                        Toast.makeText(activity, "Enviada con exito", Toast.LENGTH_LONG).show();
+                                    }
+                                }).run();
+                            }
+                        },
+                        new Response.ErrorListener() {
+                            @Override
+                            public void onErrorResponse(VolleyError error) {
+//                                Log.d("ERROR JSON", error.getMessage());
+                                new Thread(new Runnable() {
+                                    @Override
+                                    public void run() {
+                                        Toast.makeText(activity, "Error al enviar la noticia", Toast.LENGTH_LONG).show();
+                                    }
+                                }).run();
+                            }
+                        }
+                ) {
+                    @Override
+                    protected Map<String, String> getParams() throws AuthFailureError {
+                        Map<String, String> parametros = new HashMap<String, String>();
+
+                        parametros.put("idusuario", preferences.getString("idusuario", String.valueOf(0)));
+                        parametros.put("titulo", titulo.getText().toString());
+                        parametros.put("descripcion", descripcion.getText().toString());
+                        parametros.put("imagen", encodedImage);
+
+                        return parametros;
+                    }
+                });
+
+
+                break;
+        }
+
+        return super.onOptionsItemSelected(item);
+    }
 }

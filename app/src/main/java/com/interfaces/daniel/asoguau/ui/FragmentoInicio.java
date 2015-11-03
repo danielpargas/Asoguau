@@ -18,6 +18,9 @@ import com.interfaces.daniel.asoguau.libreria.VolleyAPI;
 import com.interfaces.daniel.asoguau.modelo.Noticias;
 import com.interfaces.daniel.asoguau.utilidades.DialogoCarga;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class FragmentoInicio extends Fragment {
 
     private RecyclerView reciclador;
@@ -49,6 +52,9 @@ public class FragmentoInicio extends Fragment {
 
         dialogoCarga.mostrarDialogo("Cargando Noticias");
 
+        Map<String, String> parametros = new HashMap<String, String>();
+        parametros.put("idtiponoticia", String.valueOf(1));
+
         VolleyAPI.getInstance(getActivity().getBaseContext()).addToRequestQueue(
                 new GsonRequest<Noticias>(
                         Request.Method.POST,
@@ -72,7 +78,7 @@ public class FragmentoInicio extends Fragment {
                                 Log.d("ERROR NOTICIAS", error.getMessage());
                             }
                         },
-                        null
+                        parametros
                 )
         );
 
