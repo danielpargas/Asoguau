@@ -48,8 +48,8 @@ public class ActividadPrincipal extends AppCompatActivity {
 
         SharedPreferences preferences = getSharedPreferences("DatosUsuario", MODE_PRIVATE);
 
-        String nombre = preferences.getString("nombre", "Error");
-        String apellido = preferences.getString("apellido", "Error");
+        String nombre = preferences.getString("nombre", "Errores");
+        String apellido = preferences.getString("apellido", "Errores");
 
         txtNombre.setText(nombre + " " + apellido);
 

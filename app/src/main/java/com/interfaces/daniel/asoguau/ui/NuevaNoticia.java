@@ -261,7 +261,7 @@ public class NuevaNoticia extends AppCompatActivity {
                                 new Thread(new Runnable() {
                                     @Override
                                     public void run() {
-                                        Toast.makeText(activity, "Error al enviar la noticia", Toast.LENGTH_LONG).show();
+                                        Toast.makeText(activity, "Errores al enviar la noticia", Toast.LENGTH_LONG).show();
                                     }
                                 }).run();
                             }

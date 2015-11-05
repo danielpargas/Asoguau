@@ -160,7 +160,7 @@ public class ActualizarPerfil extends AppCompatActivity implements View.OnClickL
                             DialogoOK dialogoOK = new DialogoOK();
 
                             dialogoOK.setTitulo("Perfil");
-                            dialogoOK.setMensaje("Error al Actualizar Perfil");
+                            dialogoOK.setMensaje("Errores al Actualizar Perfil");
                             dialogoOK.setTxtBoton("Entendido");
 
                             dialogoOK.show(getSupportFragmentManager(), DialogoOK.class.getName());

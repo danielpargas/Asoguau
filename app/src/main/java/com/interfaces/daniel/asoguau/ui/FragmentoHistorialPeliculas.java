@@ -18,10 +18,13 @@ import com.android.volley.VolleyError;
 import com.interfaces.daniel.asoguau.R;
 import com.interfaces.daniel.asoguau.libreria.GsonRequest;
 import com.interfaces.daniel.asoguau.libreria.VolleyAPI;
+import com.interfaces.daniel.asoguau.modelo.Errores;
 import com.interfaces.daniel.asoguau.modelo.Noticias;
 import com.interfaces.daniel.asoguau.utilidades.DialogoCarga;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -40,15 +43,17 @@ public class FragmentoHistorialPeliculas extends Fragment implements View.OnClic
         super.onCreate(savedInstanceState);
     }
 
+    private View view;
+
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+    public View onCreateView(final LayoutInflater inflater, final ViewGroup container,
                              Bundle savedInstanceState) {
 
-        View view = inflater.inflate(R.layout.fragmento_grupo_items, container, false);
+        view = inflater.inflate(R.layout.fragmento_grupo_items, container, false);
 
-        final RecyclerView recilcador = (RecyclerView) view.findViewById(R.id.reciclador);
+        final RecyclerView reciclador = (RecyclerView) view.findViewById(R.id.reciclador);
         layoutManager = new LinearLayoutManager(getActivity());
-        recilcador.setLayoutManager(layoutManager);
+        reciclador.setLayoutManager(layoutManager);
 
         final DialogoCarga dialogoCarga = new DialogoCarga(getActivity());
         dialogoCarga.mostrarDialogo("Cargando Noticias");
@@ -69,9 +74,18 @@ public class FragmentoHistorialPeliculas extends Fragment implements View.OnClic
                         new Response.Listener<Noticias>() {
                             @Override
                             public void onResponse(Noticias response) {
-                                AdaptadorHistorialPeliculas adaptador = new AdaptadorHistorialPeliculas(response.getItems(), getActivity());
-                                recilcador.setAdapter(adaptador);
-                                recilcador.addItemDecoration(new DecoracionLineaDivisoria(getActivity()));
+
+                                if (response != null && response.getItems().size() > 0) {
+
+                                    AdaptadorHistorialPeliculas adaptador = new AdaptadorHistorialPeliculas(response.getItems(), getActivity());
+                                    reciclador.setAdapter(adaptador);
+                                    reciclador.addItemDecoration(new DecoracionLineaDivisoria(getActivity()));
+                                } else {
+                                    List<Errores> errores = new ArrayList<Errores>();
+                                    errores.add(new Errores("No ha publicado noticias"));
+                                    AdaptadorError error = new AdaptadorError(errores, getActivity());
+                                    reciclador.setAdapter(error);
+                                }
                                 dialogoCarga.ocultarDialogo();
                             }
                         },

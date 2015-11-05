@@ -6,6 +6,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.drawable.BitmapDrawable;
 import android.location.Location;
 import android.net.Uri;
 import android.os.Bundle;
@@ -13,6 +14,7 @@ import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.CardView;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.Menu;
@@ -23,6 +25,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.resource.bitmap.GlideBitmapDrawable;
 import com.facebook.AccessToken;
 import com.facebook.CallbackManager;
 import com.facebook.FacebookAuthorizationException;
@@ -41,6 +44,7 @@ import com.facebook.share.model.SharePhoto;
 import com.facebook.share.model.SharePhotoContent;
 import com.facebook.share.widget.ShareDialog;
 import com.interfaces.daniel.asoguau.R;
+import com.interfaces.daniel.asoguau.libreria.VolleyAPI;
 import com.interfaces.daniel.asoguau.modelo.Noticia;
 
 import java.util.ArrayList;
@@ -84,7 +88,7 @@ public class DetallesPelicula extends AppCompatActivity {
         intent.putExtra(EXTRA_DESCRIPCION, noticia.getDescripcion());
         //Arrays.copyOf(noticia.getHorarios().toArray(), noticia.getHorarios().toArray().length, String[].class);
         //intent.putExtra(EXTRA_HORARIO, Arrays.copyOf(noticia.getHorarios().toArray(), noticia.getHorarios().toArray().length, String[].class));
-        intent.putExtra(EXTRA_DRAWABLE, noticia.getIdDrawable());
+        intent.putExtra(EXTRA_DRAWABLE, noticia.getIdnoticia());
         return intent;
     }
 
@@ -130,7 +134,7 @@ public class DetallesPelicula extends AppCompatActivity {
 
         @Override
         public void onError(FacebookException error) {
-            Log.d("HelloFacebook", String.format("Error: %s", error.toString()));
+            Log.d("HelloFacebook", String.format("Errores: %s", error.toString()));
             String title = getString(R.string.error);
             String alertMessage = error.getMessage();
             showResult(title, alertMessage);
@@ -245,7 +249,6 @@ public class DetallesPelicula extends AppCompatActivity {
         Intent i = getIntent();
         nombre = i.getStringExtra(EXTRA_NOMBRE);
         String descripcion = i.getStringExtra(EXTRA_DESCRIPCION);
-        //String[] horarios = i.getStringArrayExtra(EXTRA_HORARIO);
         idDrawable = i.getIntExtra(EXTRA_DRAWABLE, -1);
 
 
@@ -254,25 +257,17 @@ public class DetallesPelicula extends AppCompatActivity {
 
         TextView textViewHorario = (TextView) findViewById(R.id.horario_pelicula);
 
-        StringBuilder horariosAux = new StringBuilder();
-/*
-        for (String horario :
-                horarios) {
+        CardView cardView = (CardView) findViewById(R.id.horario);
+        cardView.setVisibility(View.INVISIBLE);
 
-            horariosAux.append(horario + "\n");
-
-        }
-*/
-
-        //      textViewHorario.setText(String.valueOf(horariosAux));
         textViewHorario.setText("");
-
 
         CollapsingToolbarLayout collapser =
                 (CollapsingToolbarLayout) findViewById(R.id.collapser);
         collapser.setTitle(nombre); // Cambiar título
 
         loadImageParallax(idDrawable);// Cargar Imagen
+        Log.d("IDNOTICIA", String.valueOf(idDrawable));
 
         // Setear escucha al FAB
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
@@ -323,13 +318,14 @@ public class DetallesPelicula extends AppCompatActivity {
     /**
      * Se carga una imagen aleatoria para el detalle
      */
+    private ImageView imagen;
     private void loadImageParallax(int id) {
-        ImageView image = (ImageView) findViewById(R.id.image_paralax);
+        imagen = (ImageView) findViewById(R.id.image_paralax);
         // Usando Glide para la carga asíncrona
         Glide.with(this)
-                .load(id)
+                .load(VolleyAPI.URL_CARPETA_IMAGENES_NOTICIAS + "/" + id + ".jpg")
                 .centerCrop()
-                .into(image);
+                .into(imagen);
     }
 
     /**
@@ -418,7 +414,10 @@ public class DetallesPelicula extends AppCompatActivity {
     }
 
     private void postPhoto() {
-        Bitmap image = BitmapFactory.decodeResource(this.getResources(), idDrawable);
+        //Bitmap image = BitmapFactory.decodeResource(this.getResources(), idDrawable);
+
+        Bitmap image = ((GlideBitmapDrawable) imagen.getDrawable()).getBitmap();
+
         SharePhoto sharePhoto = new SharePhoto.Builder().setBitmap(image).build();
         ArrayList<SharePhoto> photos = new ArrayList<>();
         photos.add(sharePhoto);

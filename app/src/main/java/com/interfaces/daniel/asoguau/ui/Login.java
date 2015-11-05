@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.support.design.widget.Snackbar;
 import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -115,7 +116,7 @@ public class Login extends AppCompatActivity implements DialogoOK.OnSimpleDialog
                                         dialogo.ocultarDialogo();
 
                                         FragmentoDialogo dialogoOk = new FragmentoDialogo();
-                                        dialogoOk.setTitulo("Error Login");
+                                        dialogoOk.setTitulo("Errores Login");
                                         dialogoOk.setMensaje("Usuario o Clave incorrecta");
                                         dialogoOk.setTxtBoton("Aceptar");
 
@@ -135,7 +136,10 @@ public class Login extends AppCompatActivity implements DialogoOK.OnSimpleDialog
                             @Override
                             public void onErrorResponse(VolleyError error) {
                                 dialogo.ocultarDialogo();
-                                Log.d("ERROR JSON", error.getMessage());
+                                //Log.d("ERROR JSON", error.getMessage());
+                                Snackbar
+                                        .make(findViewById(R.id.linear_layout_login), "No se pudo Procesar el Login", Snackbar.LENGTH_LONG)
+                                        .show();
                             }
                         }
                 ) {

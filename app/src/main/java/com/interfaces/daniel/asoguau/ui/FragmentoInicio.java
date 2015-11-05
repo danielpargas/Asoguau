@@ -15,10 +15,13 @@ import com.android.volley.VolleyError;
 import com.interfaces.daniel.asoguau.R;
 import com.interfaces.daniel.asoguau.libreria.GsonRequest;
 import com.interfaces.daniel.asoguau.libreria.VolleyAPI;
+import com.interfaces.daniel.asoguau.modelo.Errores;
 import com.interfaces.daniel.asoguau.modelo.Noticias;
 import com.interfaces.daniel.asoguau.utilidades.DialogoCarga;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class FragmentoInicio extends Fragment {
@@ -65,9 +68,19 @@ public class FragmentoInicio extends Fragment {
                             @Override
                             public void onResponse(Noticias response) {
 
-                                adaptador = new AdaptadorInicio(response.getItems(), getActivity());
-                                reciclador.setAdapter(adaptador);
+                                if (response != null && response.getItems().size() > 0) {
+                                    adaptador = new AdaptadorInicio(response.getItems(), getActivity());
+                                    reciclador.setAdapter(adaptador);
+                                } else {
+                                    List<Errores> errores = new ArrayList<Errores>();
+                                    errores.add(new Errores("No hay Publicaciones Disponibles"));
+                                    AdaptadorError error = new AdaptadorError(errores, getActivity());
+                                    reciclador.setAdapter(error);
+                                }
+
+
                                 dialogoCarga.ocultarDialogo();
+
 
                             }
                         },
