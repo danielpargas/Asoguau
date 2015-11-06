@@ -1,6 +1,7 @@
 package com.interfaces.daniel.asoguau.libreria;
 
 import com.android.volley.AuthFailureError;
+import com.android.volley.DefaultRetryPolicy;
 import com.android.volley.NetworkResponse;
 import com.android.volley.ParseError;
 import com.android.volley.Request;
@@ -32,6 +33,7 @@ public class GsonRequest<T> extends Request<T> {
         this.clazz = clazz;
         this.headers = headers;
         this.listener = listener;
+        setRetryPolicy(new DefaultRetryPolicy(DefaultRetryPolicy.DEFAULT_TIMEOUT_MS, 4, DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
     }
 
     public GsonRequest(int method, String url, Class<T> clazz, Map<String, String> headers,
@@ -41,6 +43,7 @@ public class GsonRequest<T> extends Request<T> {
         this.headers = headers;
         this.listener = listener;
         this.parameters = parameters;
+        setRetryPolicy(new DefaultRetryPolicy(DefaultRetryPolicy.DEFAULT_TIMEOUT_MS, 4, DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
     }
 
     @Override

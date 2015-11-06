@@ -74,5 +74,6 @@
     <string name="action_save">Guardar</string>
     <string name="title_activity_agregar_noticia">AgregarNoticia</string>
     <string name="action_send">Enviar</string>
+    <string name="search_hint">Buscar...</string>
 
 </resources>

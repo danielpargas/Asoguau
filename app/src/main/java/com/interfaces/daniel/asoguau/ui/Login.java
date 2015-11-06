@@ -71,6 +71,7 @@ public class Login extends AppCompatActivity implements DialogoOK.OnSimpleDialog
         ImageView imgLogo = (ImageView) findViewById(R.id.imageView);
         Glide.with(this)
                 .load(R.drawable.asoguaulogo2)
+                        //.load(R.drawable.borrable1)
                 .into(imgLogo);
 
         btnIngreso.setOnClickListener(new View.OnClickListener() {
@@ -127,6 +128,8 @@ public class Login extends AppCompatActivity implements DialogoOK.OnSimpleDialog
                                     }
                                 } catch (JSONException e) {
                                     e.printStackTrace();
+                                } catch (Exception e) {
+                                    e.printStackTrace();
                                 }
 
 
@@ -136,7 +139,6 @@ public class Login extends AppCompatActivity implements DialogoOK.OnSimpleDialog
                             @Override
                             public void onErrorResponse(VolleyError error) {
                                 dialogo.ocultarDialogo();
-                                //Log.d("ERROR JSON", error.getMessage());
                                 Snackbar
                                         .make(findViewById(R.id.linear_layout_login), "No se pudo Procesar el Login", Snackbar.LENGTH_LONG)
                                         .show();

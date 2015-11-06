@@ -1,5 +1,7 @@
 package com.interfaces.daniel.asoguau.ui;
 
+import android.app.SearchManager;
+import android.content.Context;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.design.widget.AppBarLayout;
@@ -8,9 +10,11 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 import android.support.v4.view.ViewPager;
+import android.support.v7.widget.SearchView;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
@@ -81,7 +85,23 @@ public class FragmentoPeliculas extends Fragment {
 
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        //MenuInflater menuInflater = getActivity().getMenuInflater();
+        //menuInflater.inflate(R.menu.menu_peliculas, menu);
         inflater.inflate(R.menu.menu_peliculas, menu);
+
+
+        MenuItem searchItem = menu.findItem(R.id.action_search);
+
+        SearchManager searchManager = (SearchManager) getActivity().getSystemService(Context.SEARCH_SERVICE);
+
+        SearchView searchView = null;
+        if (searchItem != null) {
+            searchView = (SearchView) searchItem.getActionView();
+        }
+        if (searchView != null) {
+            searchView.setSearchableInfo(searchManager.getSearchableInfo(getActivity().getComponentName()));
+        }
+        //inflater.inflate(R.menu.menu_peliculas, menu);
     }
 
     @Override

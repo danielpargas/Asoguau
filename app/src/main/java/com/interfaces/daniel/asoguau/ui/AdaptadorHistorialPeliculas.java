@@ -1,5 +1,6 @@
 package com.interfaces.daniel.asoguau.ui;
 
+import android.app.Activity;
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -68,7 +69,7 @@ public class AdaptadorHistorialPeliculas
     }
 
     @Override
-    public void onBindViewHolder(ViewHolder viewHolder, int i) {
+    public void onBindViewHolder(final ViewHolder viewHolder, int i) {
 
         Noticia item = items.get(i);
         viewHolder.titulo.setText(item.getTitulo());
@@ -78,11 +79,23 @@ public class AdaptadorHistorialPeliculas
 
         Glide.with(viewHolder.itemView.getContext())
                 .load(VolleyAPI.URL_CARPETA_IMAGENES_NOTICIAS + "/" + item.getIdnoticia() + ".jpg")
-                .placeholder(R.drawable.perfil)
-                .error(R.drawable.perfil)
+                .placeholder(R.mipmap.img_load)
+                .error(R.mipmap.img_load)
                 .centerCrop()
                 .crossFade(1000)
                 .into(viewHolder.imagen);
+
+
+        viewHolder.itemView.setId(i);
+        viewHolder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(final View v) {
+                Noticia noticiaActual = null;
+                noticiaActual = items.get(v.getId());
+                DetallesPelicula.createInstance((Activity) viewHolder.itemView.getContext(), noticiaActual);
+            }
+        });
+
     }
 
     /**

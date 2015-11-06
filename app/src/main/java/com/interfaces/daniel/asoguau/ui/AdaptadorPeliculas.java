@@ -75,6 +75,10 @@ public class AdaptadorPeliculas extends RecyclerView.Adapter<AdaptadorPeliculas.
     public void onBindViewHolder(final ViewHolder viewHolder, int i) {
         final Noticia item = items.get(i);
 
+        Glide.with(viewHolder.itemView.getContext())
+                .load(R.mipmap.img_load)
+                .centerCrop()
+                .into(viewHolder.imagen);
 
         VolleyAPI.getInstance(viewHolder.itemView.getContext()).addToRequestQueue(new ImageRequest(
                         VolleyAPI.URL_CARPETA_IMAGENES_NOTICIAS + "/" + String.valueOf(item.getIdnoticia()) + ".jpg",
@@ -93,7 +97,7 @@ public class AdaptadorPeliculas extends RecyclerView.Adapter<AdaptadorPeliculas.
                             @Override
                             public void onErrorResponse(VolleyError error) {
                                 Glide.with(viewHolder.itemView.getContext())
-                                        .load(R.drawable.noticias_redes)
+                                        .load(R.mipmap.img_load)
                                         .centerCrop()
                                         .into(viewHolder.imagen);
                             }
@@ -127,12 +131,10 @@ public class AdaptadorPeliculas extends RecyclerView.Adapter<AdaptadorPeliculas.
 
                 switch (indiceSeccion) {
                     case 0:
-                        // peliculaActual = Pelicula.TODAS.get(v.getId());
                         noticiaActual = items.get(v.getId());
                         break;
                     case 1:
                         noticiaActual = items.get(v.getId());
-                        //peliculaActual = Pelicula.RECIENTES.get(v.getId());
                 }
 
                 DetallesPelicula.createInstance(activity, noticiaActual);

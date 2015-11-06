@@ -1,9 +1,11 @@
 package com.interfaces.daniel.asoguau.libreria;
 
+import com.android.volley.DefaultRetryPolicy;
 import com.android.volley.NetworkResponse;
 import com.android.volley.ParseError;
 import com.android.volley.Request;
 import com.android.volley.Response;
+import com.android.volley.RetryPolicy;
 import com.android.volley.toolbox.HttpHeaderParser;
 
 import org.json.JSONException;
@@ -24,20 +26,21 @@ public class MiJsonObjectRequest extends Request<JSONObject> {
         super(Method.GET, url, errorListener);
         this.listener = responseListener;
         this.params = params;
+        setRetryPolicy(new DefaultRetryPolicy(DefaultRetryPolicy.DEFAULT_TIMEOUT_MS, 4, DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
     }
 
     public MiJsonObjectRequest(int method, String url, Map<String, String> params, Response.Listener<JSONObject> reponseListener, Response.ErrorListener errorListener) {
         super(method, url, errorListener);
         this.listener = reponseListener;
         this.params = params;
+
+        setRetryPolicy(new DefaultRetryPolicy(DefaultRetryPolicy.DEFAULT_TIMEOUT_MS, 4, DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
     }
 
     @Override
     protected Map<String, String> getParams() throws com.android.volley.AuthFailureError {
         return params;
     }
-
-    ;
 
     @Override
     protected Response<JSONObject> parseNetworkResponse(NetworkResponse response) {

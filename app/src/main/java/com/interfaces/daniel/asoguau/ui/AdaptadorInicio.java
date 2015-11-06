@@ -69,6 +69,12 @@ public class AdaptadorInicio extends RecyclerView.Adapter<AdaptadorInicio.ViewHo
         /**
          * Carga de Imagenes
          */
+
+        Glide.with(holder.itemView.getContext())
+                .load(R.mipmap.img_load)
+                .centerCrop()
+                .into(holder.imagen);
+
         VolleyAPI.getInstance(context).addToRequestQueue(new ImageRequest(
                 VolleyAPI.URL_CARPETA_IMAGENES_NOTICIAS + "/" + String.valueOf(items.get(position).getIdnoticia()) + ".jpg",
                 new Response.Listener<Bitmap>() {
@@ -92,7 +98,7 @@ public class AdaptadorInicio extends RecyclerView.Adapter<AdaptadorInicio.ViewHo
                     public void onErrorResponse(VolleyError error) {
 
                         Glide.with(holder.itemView.getContext())
-                                .load(R.drawable.noticias_redes)
+                                .load(R.mipmap.img_load)
                                 .centerCrop()
                                 .into(holder.imagen);
 
@@ -108,6 +114,9 @@ public class AdaptadorInicio extends RecyclerView.Adapter<AdaptadorInicio.ViewHo
 */
         holder.nombre.setText(items.get(position).getTitulo());
         holder.desripcion.setText(items.get(position).getResumen());
+
+
+
 
         /*
         holder.itemView.setClickable(true);
