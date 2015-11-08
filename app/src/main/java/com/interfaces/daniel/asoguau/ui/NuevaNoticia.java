@@ -152,7 +152,7 @@ public class NuevaNoticia extends AppCompatActivity {
                 if (resultCode == RESULT_OK) {
                     String dir = Environment.getExternalStorageDirectory() + File.separator
                             + MEDIA_DIRECTORY + File.separator + TEMPORAL_PICTURE_NAME;
-                    decodeBitmap(dir);
+                    //decodeBitmap(dir);
                     ConvertitBase64(dir);
                 }
                 break;
@@ -167,11 +167,19 @@ public class NuevaNoticia extends AppCompatActivity {
                     try {
                         imagen = MediaStore.Images.Media.getBitmap(getContentResolver(), path);
 
+                        float aspectRatio = imagen.getWidth() /
+                                (float) imagen.getHeight();
+                        int width = 360;
+                        int height = Math.round(width / aspectRatio);
+
+                        imagen = Bitmap.createScaledBitmap(
+                                imagen, width, height, false);
+
                         byte[] byteArray = ProcesarImagen.bitmapToArrayBytes(imagen);
                         ;
 
                         encodedImage = Base64.encodeToString(byteArray, Base64.NO_WRAP);
-                        Log.d("IMAGEN", encodedImage);
+                        // Log.d("IMAGEN", encodedImage);
 
                     } catch (IOException e) {
                         e.printStackTrace();
@@ -205,14 +213,27 @@ public class NuevaNoticia extends AppCompatActivity {
         }
 
         Bitmap bm = BitmapFactory.decodeStream(fis);
+
+        float aspectRatio = bm.getWidth() /
+                (float) bm.getHeight();
+        int width = 360;
+        int height = Math.round(width / aspectRatio);
+
+        bm = Bitmap.createScaledBitmap(
+                bm, width, height, false);
+
         ByteArrayOutputStream baos = new ByteArrayOutputStream();
         bm.compress(Bitmap.CompressFormat.JPEG, 100, baos);
         byte[] b = baos.toByteArray();
 
-        encodedImage = Base64.encodeToString(b, Base64.DEFAULT);
+        encodedImage = Base64.encodeToString(b, Base64.NO_WRAP);
+
+        imageView.setImageBitmap(bm);
+
 
         return encodedImage;
     }
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

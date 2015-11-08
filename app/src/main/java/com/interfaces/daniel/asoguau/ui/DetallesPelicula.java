@@ -260,6 +260,7 @@ public class DetallesPelicula extends AppCompatActivity {
         CardView cardView = (CardView) findViewById(R.id.horario);
         cardView.setVisibility(View.INVISIBLE);
 
+
         textViewHorario.setText("");
 
         CollapsingToolbarLayout collapser =
@@ -270,7 +271,9 @@ public class DetallesPelicula extends AppCompatActivity {
         Log.d("IDNOTICIA", String.valueOf(idDrawable));
 
         // Setear escucha al FAB
+        /*
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+        fab.setVisibility(View.INVISIBLE);
         fab.setOnClickListener(
                 new View.OnClickListener() {
                     @Override
@@ -280,7 +283,7 @@ public class DetallesPelicula extends AppCompatActivity {
                     }
                 }
         );
-
+*/
 
     }
 
