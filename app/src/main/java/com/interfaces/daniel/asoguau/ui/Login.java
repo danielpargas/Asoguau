@@ -71,93 +71,106 @@ public class Login extends AppCompatActivity implements DialogoOK.OnSimpleDialog
         ImageView imgLogo = (ImageView) findViewById(R.id.imageView);
         Glide.with(this)
                 .load(R.drawable.asoguaulogo2)
-                        //.load(R.drawable.borrable1)
+                        //   .load(R.drawable.borrable1)
                 .into(imgLogo);
 
         btnIngreso.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                dialogo.mostrarDialogo("Comprobando Datos");
+                boolean error = false;
 
-                VolleyAPI.getInstance(v.getContext()).addToRequestQueue(new MiJsonObjectRequest(
-                        Request.Method.POST,
-                        VolleyAPI.URL_WEBSERVICE + VolleyAPI.URL_PROCESAR_LOGIN,
-                        null,
-                        new Response.Listener<JSONObject>() {
-                            @Override
-                            public void onResponse(JSONObject response) {
+                if (correo.getText().toString().isEmpty()) {
+                    correo.setError("Ingrese un correo");
+                    error = true;
+                }
 
-                                try {
-                                    if (response.getInt("estatus") == 1) {
+                if (clave.getText().toString().isEmpty()) {
+                    clave.setError("Ingrese una clave");
+                    error = true;
+                }
 
-                                        SharedPreferences preferences = getSharedPreferences("DatosUsuario", MODE_PRIVATE);
-                                        SharedPreferences.Editor editor = preferences.edit();
+                if (!error) {
+                    dialogo.mostrarDialogo("Comprobando Datos");
 
-                                        editor.putString("idusuario", response.getString("idusuario"));
-                                        editor.putString("idtipousuario", response.getString("idtipousuario"));
-                                        editor.putString("idstatususuario", response.getString("idstatususuario"));
-                                        editor.putString("nombre", response.getString("nombre"));
-                                        editor.putString("apellido", response.getString("apellido"));
-                                        editor.putString("correo", response.getString("correo"));
-                                        editor.putString("telefono", response.getString("telefono"));
+                    VolleyAPI.getInstance(v.getContext()).addToRequestQueue(new MiJsonObjectRequest(
+                            Request.Method.POST,
+                            VolleyAPI.URL_WEBSERVICE + VolleyAPI.URL_PROCESAR_LOGIN,
+                            null,
+                            new Response.Listener<JSONObject>() {
+                                @Override
+                                public void onResponse(JSONObject response) {
 
-                                        editor.putBoolean("login", true);
+                                    try {
+                                        if (response.getInt("estatus") == 1) {
 
-                                        editor.commit();
+                                            SharedPreferences preferences = getSharedPreferences("DatosUsuario", MODE_PRIVATE);
+                                            SharedPreferences.Editor editor = preferences.edit();
 
-                                        dialogo.ocultarDialogo();
+                                            editor.putString("idusuario", response.getString("idusuario"));
+                                            editor.putString("idtipousuario", response.getString("idtipousuario"));
+                                            editor.putString("idstatususuario", response.getString("idstatususuario"));
+                                            editor.putString("nombre", response.getString("nombre"));
+                                            editor.putString("apellido", response.getString("apellido"));
+                                            editor.putString("correo", response.getString("correo"));
+                                            editor.putString("telefono", response.getString("telefono"));
 
-                                        Intent intent = new Intent(context, ActividadPrincipal.class);
-                                        startActivity(intent);
+                                            editor.putBoolean("login", true);
+
+                                            editor.commit();
+
+                                            dialogo.ocultarDialogo();
+
+                                            Intent intent = new Intent(context, ActividadPrincipal.class);
+                                            startActivity(intent);
 
 
-                                    } else {
+                                        } else {
 
-                                        dialogo.ocultarDialogo();
+                                            dialogo.ocultarDialogo();
 
-                                        FragmentoDialogo dialogoOk = new FragmentoDialogo();
-                                        dialogoOk.setTitulo("Errores Login");
-                                        dialogoOk.setMensaje("Usuario o Clave incorrecta");
-                                        dialogoOk.setTxtBoton("Aceptar");
+                                            FragmentoDialogo dialogoOk = new FragmentoDialogo();
+                                            dialogoOk.setTitulo("Errores Login");
+                                            dialogoOk.setMensaje("Usuario o Clave incorrecta");
+                                            dialogoOk.setTxtBoton("Aceptar");
 
-                                        FragmentManager fragmentManager = getSupportFragmentManager();
-                                        fragmentManager.beginTransaction()
-                                                .add(dialogoOk, "FragmentoDialogo")
-                                                .commit();
+                                            FragmentManager fragmentManager = getSupportFragmentManager();
+                                            fragmentManager.beginTransaction()
+                                                    .add(dialogoOk, "FragmentoDialogo")
+                                                    .commit();
+                                        }
+                                    } catch (JSONException e) {
+                                        e.printStackTrace();
+                                    } catch (Exception e) {
+                                        e.printStackTrace();
                                     }
-                                } catch (JSONException e) {
-                                    e.printStackTrace();
-                                } catch (Exception e) {
-                                    e.printStackTrace();
+
+
                                 }
-
-
+                            },
+                            new Response.ErrorListener() {
+                                @Override
+                                public void onErrorResponse(VolleyError error) {
+                                    dialogo.ocultarDialogo();
+                                    Snackbar
+                                            .make(findViewById(R.id.linear_layout_login), "No se pudo Procesar el Login", Snackbar.LENGTH_LONG)
+                                            .show();
+                                }
                             }
-                        },
-                        new Response.ErrorListener() {
-                            @Override
-                            public void onErrorResponse(VolleyError error) {
-                                dialogo.ocultarDialogo();
-                                Snackbar
-                                        .make(findViewById(R.id.linear_layout_login), "No se pudo Procesar el Login", Snackbar.LENGTH_LONG)
-                                        .show();
-                            }
+                    ) {
+                        @Override
+                        protected Map<String, String> getParams() throws AuthFailureError {
+                            Map<String, String> parametros = new HashMap<String, String>();
+
+                            parametros.put("correo", correo.getText().toString());
+                            parametros.put("clave", clave.getText().toString());
+
+                            return parametros;
+
                         }
-                ) {
-                    @Override
-                    protected Map<String, String> getParams() throws AuthFailureError {
-                        Map<String, String> parametros = new HashMap<String, String>();
+                    });
 
-                        parametros.put("correo", correo.getText().toString());
-                        parametros.put("clave", clave.getText().toString());
-
-                        return parametros;
-
-                    }
-                });
-
-
+                }
             }
         });
     }

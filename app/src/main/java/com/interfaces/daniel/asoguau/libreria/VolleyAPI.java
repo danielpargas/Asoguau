@@ -14,13 +14,14 @@ import com.android.volley.toolbox.Volley;
  */
 public final class VolleyAPI {
 
-    //public static final String URL_WEBSERVICE = "http://192.168.56.1/Asoguau2/websevice";
-    //public static final String URL_CARPETA_IMAGENES_NOTICIAS = "http://192.168.56.1/Asoguau2/imagenes/noticia";
-    //public static final String URL_CARPETA_IMAGENES_USUARIOS = "http://192.168.56.1/Asoguau2/imagenes/usuario";
+    public static final String URL_WEBSERVICE = "http://192.168.56.1/Asoguau2/websevice";
+    public static final String URL_CARPETA_IMAGENES_NOTICIAS = "http://192.168.56.1/Asoguau2/imagenes/noticia";
+    public static final String URL_CARPETA_IMAGENES_USUARIOS = "http://192.168.56.1/Asoguau2/imagenes/usuario";
+    /*
     public static final String URL_WEBSERVICE = "http://asoguau.esy.es/android/websevice";
     public static final String URL_CARPETA_IMAGENES_NOTICIAS = "http://asoguau.esy.es/android/imagenes/noticia";
     public static final String URL_CARPETA_IMAGENES_USUARIOS = "http://asoguau.esy.es/android/imagenes/usuario";
-
+    */
     public static final String URL_ACTUALIZAR_PERFIL = "/ActualizarPerfilUsuario.php";
     public static final String URL_PROCESAR_LOGIN = "/ProcesarLogin.php";
     public static final String URL_NOTICIAS = "/ObtenerTodasNoticias.php";
@@ -28,7 +29,7 @@ public final class VolleyAPI {
     public static final String URL_REGISTRO = "/InsertarUsuario.php";
     public static final String URL_NOTICIAS_USUARIO = "/obtenernoticiausuario.php";
     public static final String URL_SUBIR_DONACION = "/subirdonacion.php";
-    public static final String URL_OBTENER_DONACIONES = "/obtenerdonaciones.php";
+    public static final String URL_OBTENER_DONACIONES = "/ObtenerTodasDonacion.php";
 
     public static final String TAG = "PostAdapter";
     private static VolleyAPI volleyAPI;

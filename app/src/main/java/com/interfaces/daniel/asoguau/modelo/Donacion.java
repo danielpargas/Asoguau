@@ -4,24 +4,45 @@ package com.interfaces.daniel.asoguau.modelo;
  * Created by hanyou on 04/10/15.
  */
 public class Donacion {
-    private String monto;
+    private String iddonacion;
+    private String idusuario;
+    private String idstatusdonacion;
     private String nreferencia;
-    private String nombre;
     private String fecha;
+    private String monto;
 
-    public Donacion(String monto, String nreferencia, String nombre, String fecha) {
-        this.monto = monto;
+
+    public Donacion(String iddonacion, String idusuario, String idstatusdonacion, String nreferencia, String fecha, String monto) {
+        this.iddonacion = iddonacion;
+        this.idusuario = idusuario;
+        this.idstatusdonacion = idstatusdonacion;
         this.nreferencia = nreferencia;
-        this.nombre = nombre;
         this.fecha = fecha;
-    }
-
-    public String getMonto() {
-        return monto;
-    }
-
-    public void setMonto(String monto) {
         this.monto = monto;
+    }
+
+    public String getIddonacion() {
+        return iddonacion;
+    }
+
+    public void setIddonacion(String iddonacion) {
+        this.iddonacion = iddonacion;
+    }
+
+    public String getIdusuario() {
+        return idusuario;
+    }
+
+    public void setIdusuario(String idusuario) {
+        this.idusuario = idusuario;
+    }
+
+    public String getIdstatusdonacion() {
+        return idstatusdonacion;
+    }
+
+    public void setIdstatusdonacion(String idstatusdonacion) {
+        this.idstatusdonacion = idstatusdonacion;
     }
 
     public String getNreferencia() {
@@ -32,19 +53,19 @@ public class Donacion {
         this.nreferencia = nreferencia;
     }
 
-    public String getNombre() {
-        return nombre;
-    }
-
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
-
     public String getFecha() {
         return fecha;
     }
 
     public void setFecha(String fecha) {
         this.fecha = fecha;
+    }
+
+    public String getMonto() {
+        return monto;
+    }
+
+    public void setMonto(String monto) {
+        this.monto = monto;
     }
 }

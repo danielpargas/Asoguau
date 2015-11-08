@@ -1,16 +1,71 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:gravity="bottom">
+    <!--
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/padding_izquierdo_cabecera"
 
+            android:layout_gravity="center_vertical"
+            android:columnCount="3"
+            android:orientation="vertical"
+            android:rowCount="1">
+
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center">
+    -->
     <GridLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:columnCount="2">
+        android:padding="@dimen/padding_izquierdo_cabecera"
+        android:columnCount="3"
+        android:orientation="horizontal">
 
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/avatar2"
+            android:layout_width="72dp"
+            android:layout_height="72dp"
+            android:layout_marginRight="@dimen/espacio_norma_1"
+            android:src="@drawable/perfil" />
 
+        <LinearLayout
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:layout_gravity="center"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/referencia"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="#31315151351"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/datos"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="2015-11-11, 30000 Bs"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/estatus"
+            android:layout_height="30dp"
+            android:layout_width="30dp"
+            android:src="@drawable/news1"
+            android:layout_gravity="right|center_vertical" />
     </GridLayout>
-
-
+    <!--
+            </TableRow>
+        </TableLayout>
+        -->
 </LinearLayout>
