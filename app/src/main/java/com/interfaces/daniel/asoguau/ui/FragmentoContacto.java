@@ -3,7 +3,9 @@ package com.interfaces.daniel.asoguau.ui;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -21,6 +23,7 @@ import com.interfaces.daniel.asoguau.modelo.Errores;
 import com.interfaces.daniel.asoguau.modelo.ListaDonacion;
 import com.interfaces.daniel.asoguau.modelo.Noticias;
 import com.interfaces.daniel.asoguau.utilidades.DialogoCarga;
+import com.interfaces.daniel.asoguau.utilidades.DialogoDonacion;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -42,6 +45,7 @@ public class FragmentoContacto extends Fragment {
 
     private RecyclerView reciclador;
     private GridLayoutManager layoutManager;
+    private FloatingActionButton mas;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -52,6 +56,15 @@ public class FragmentoContacto extends Fragment {
         reciclador = (RecyclerView) view.findViewById(R.id.reciclador);
         layoutManager = new GridLayoutManager(getActivity(), 1);
         reciclador.setLayoutManager(layoutManager);
+
+        mas = (FloatingActionButton) view.findViewById(R.id.mas);
+        mas.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FragmentManager manager = getFragmentManager();
+                new DialogoDonacion().show(manager, DialogoDonacion.class.getSimpleName());
+            }
+        });
 
         final DialogoCarga dialogoCarga = new DialogoCarga(getActivity());
         dialogoCarga.mostrarDialogo("Cargando Donaciones");

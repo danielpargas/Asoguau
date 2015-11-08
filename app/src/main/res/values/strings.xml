@@ -76,5 +76,9 @@
     <string name="title_activity_agregar_noticia">AgregarNoticia</string>
     <string name="action_send">Enviar</string>
     <string name="search_hint">Buscar...</string>
+    <string name="info_text_donacion">Bienvenido a la donacion Asoguau</string>
+    <string name="donar_boton">Donar</string>
+    <string name="monto_hint">Monto</string>
+    <string name="salir_boton">Salir</string>
 
 </resources>

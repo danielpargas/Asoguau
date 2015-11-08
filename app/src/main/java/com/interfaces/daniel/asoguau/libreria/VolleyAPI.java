@@ -28,7 +28,7 @@ public final class VolleyAPI {
     public static final String URL_INSERTAR_NOTICIAS = "/InsertarNoticia.php";
     public static final String URL_REGISTRO = "/InsertarUsuario.php";
     public static final String URL_NOTICIAS_USUARIO = "/obtenernoticiausuario.php";
-    public static final String URL_SUBIR_DONACION = "/subirdonacion.php";
+    public static final String URL_SUBIR_DONACION = "/InsertarDonacion.php";
     public static final String URL_OBTENER_DONACIONES = "/ObtenerTodasDonacion.php";
 
     public static final String TAG = "PostAdapter";

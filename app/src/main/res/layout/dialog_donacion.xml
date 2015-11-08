@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white"
+    android:padding="@dimen/espacio_norma_1">
+
+
+    <TextView
+        android:id="@+id/info_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:gravity="center"
+        android:paddingBottom="@dimen/espacio_norma_2"
+        android:paddingTop="@dimen/espacio_norma_2"
+        android:text="@string/info_text_donacion"
+        android:textAppearance="?android:attr/textAppearanceSmall" />
+
+    <Button
+        android:id="@+id/donar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/info_text"
+        android:layout_centerHorizontal="true"
+        android:paddingBottom="@dimen/espacio_norma_2"
+        android:paddingTop="@dimen/espacio_norma_2"
+        android:text="@string/donar_boton"
+        android:textColor="@android:color/white" />
+
+    <View
+        android:id="@+id/divider"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_below="@+id/donar"
+        android:layout_marginBottom="@dimen/espacio_norma_2"
+        android:layout_marginTop="@dimen/espacio_norma_2"
+        android:background="#C8C9CB" />
+
+    <EditText
+        android:id="@+id/monto"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/divider"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/espacio_norma_2"
+        android:background="@drawable/edit_text_border"
+        android:ems="10"
+        android:hint="@string/monto_hint"
+        android:inputType="textPersonName"
+        android:padding="@dimen/espacio_norma_2"
+        android:textAppearance="?android:attr/textAppearanceSmall" />
+
+
+    <Button
+        android:id="@+id/salir"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:paddingBottom="@dimen/espacio_norma_2"
+        android:paddingTop="@dimen/espacio_norma_2"
+        android:text="@string/salir_boton"
+        android:textColor="@android:color/white" />
+</RelativeLayout>

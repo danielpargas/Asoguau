@@ -4,10 +4,13 @@ import android.app.Activity;
 import android.app.SearchManager;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.view.View;
 
 import com.android.volley.Request;
 import com.android.volley.Response;
@@ -20,9 +23,11 @@ import com.interfaces.daniel.asoguau.modelo.Noticias;
 import com.interfaces.daniel.asoguau.utilidades.DialogoCarga;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
-public class ResultadoBusquedaNoticia extends Activity {
+public class ResultadoBusquedaNoticia extends AppCompatActivity {
 
 
     private RecyclerView reciclador;
@@ -32,11 +37,28 @@ public class ResultadoBusquedaNoticia extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.fragmento_grupo_items2);
+        setContentView(R.layout.activity_resultado_busqueda_noticia);
 
         reciclador = (RecyclerView) findViewById(R.id.reciclador);
         layoutManager = new GridLayoutManager(this, 1);
         reciclador.setLayoutManager(layoutManager);
+
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+
+        setSupportActionBar(toolbar);
+
+        ActionBar actionBar = getSupportActionBar();
+
+        if (actionBar != null) {
+            actionBar.setDisplayHomeAsUpEnabled(true);
+        }
+
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
 
         handleIntent(getIntent());
     }
@@ -55,6 +77,10 @@ public class ResultadoBusquedaNoticia extends Activity {
             Log.d("CADENABUSQUEDA", query);
             final DialogoCarga dialogoCarga = new DialogoCarga(this);
             dialogoCarga.mostrarDialogo("Cargando Noticias");
+
+            Map<String, String> parametros = new HashMap<String, String>();
+            parametros.put("busqueda", query);
+            parametros.put("idtiponoticia", String.valueOf(2));
 
             VolleyAPI.getInstance(this).addToRequestQueue(
                     new GsonRequest<Noticias>(
@@ -75,7 +101,6 @@ public class ResultadoBusquedaNoticia extends Activity {
                                         reciclador.setAdapter(error);
                                     }
                                     dialogoCarga.ocultarDialogo();
-
                                 }
                             },
                             new Response.ErrorListener() {
@@ -84,7 +109,7 @@ public class ResultadoBusquedaNoticia extends Activity {
                                     dialogoCarga.ocultarDialogo();
                                 }
                             },
-                            null//parametros
+                            parametros
                     ));
 
 
