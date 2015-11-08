@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.interfaces.daniel.asoguau.R;
 import com.interfaces.daniel.asoguau.modelo.Donacion;
 
@@ -44,14 +45,25 @@ public class AdaptadorDonacion extends RecyclerView.Adapter<AdaptadorDonacion.Vi
 
         Log.d("REFERENCIA", item.getNreferencia());
 
-
         holder.referencia.setText("#" + item.getNreferencia());
         holder.datos.setText(item.getFecha() + ", " + item.getMonto() + "Bs");
 
-        if (item.getIdstatusdonacion().equals("0")) {
+        if (item.getIdstatusdonacion().equals("1")) {
+            Glide.with(context)
+                    .load(R.drawable.donacion_aceptada)
+                    .crossFade(1000)
+                    .into(holder.estatus);
+        } else if (item.getIdstatusdonacion().equals("2")) {
 
-        } else {
-
+            Glide.with(context)
+                    .load(R.drawable.donacion_rechazada)
+                    .crossFade(1000)
+                    .into(holder.estatus);
+        } else if (item.getIdstatusdonacion().equals("3")) {
+            Glide.with(context)
+                    .load(R.drawable.donacion_espera)
+                    .crossFade(1000)
+                    .into(holder.estatus);
         }
 
     }

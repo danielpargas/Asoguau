@@ -33,6 +33,7 @@ public class ResultadoBusquedaNoticia extends AppCompatActivity {
     private RecyclerView reciclador;
     private GridLayoutManager layoutManager;
     private AdaptadorPeliculas adaptador;
+    private Toolbar toolbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,7 +44,7 @@ public class ResultadoBusquedaNoticia extends AppCompatActivity {
         layoutManager = new GridLayoutManager(this, 1);
         reciclador.setLayoutManager(layoutManager);
 
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        toolbar = (Toolbar) findViewById(R.id.toolbar);
 
         setSupportActionBar(toolbar);
 
@@ -73,6 +74,12 @@ public class ResultadoBusquedaNoticia extends AppCompatActivity {
 
         if (Intent.ACTION_SEARCH.equals(intent.getAction())) {
             String query = intent.getStringExtra(SearchManager.QUERY);
+
+            ActionBar bar = getSupportActionBar();
+
+            if (bar != null) {
+                bar.setTitle(query);
+            }
             //use the query to search your data somehow
             Log.d("CADENABUSQUEDA", query);
             final DialogoCarga dialogoCarga = new DialogoCarga(this);
