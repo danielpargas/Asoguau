@@ -39,6 +39,10 @@ public class ActualizarPerfil extends AppCompatActivity implements View.OnClickL
     private EditText correo;
     private Button guardar;
 
+    /**
+     * @param savedInstanceState
+     */
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
