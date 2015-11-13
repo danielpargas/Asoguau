@@ -80,5 +80,6 @@
     <string name="donar_boton">Donar</string>
     <string name="monto_hint">Monto</string>
     <string name="salir_boton">Salir</string>
+    <string name="text_registro_login">¿No estas Registrado en Asoguau?</string>
 
 </resources>

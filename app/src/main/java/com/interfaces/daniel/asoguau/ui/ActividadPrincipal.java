@@ -1,6 +1,8 @@
 package com.interfaces.daniel.asoguau.ui;
 
 
+import android.app.Activity;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
@@ -89,6 +91,10 @@ public class ActividadPrincipal extends AppCompatActivity {
                 break;
             case R.id.item_categorias:
                 fragmentoGenerico = new FragmentoPeliculas();
+                // Fragmento para la sección Categorías
+                break;
+            case R.id.item_ajustes:
+                startActivity(new Intent(this, ActivityCambioIdioma.class));
                 // Fragmento para la sección Categorías
                 break;
             case R.id.item_Salir:

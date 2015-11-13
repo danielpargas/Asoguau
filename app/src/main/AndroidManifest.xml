@@ -68,11 +68,11 @@
             android:name=".ui.AgregarNoticia"
             android:label="@string/title_activity_agregar_noticia"
             android:screenOrientation="portrait"
-            android:theme="@style/Theme.CinesUnidos"></activity>
+            android:theme="@style/Theme.CinesUnidos" />
         <activity
             android:name=".ui.ActualizarPerfil"
-            android:screenOrientation="portrait"></activity>
-        <activity android:name=".ui.NuevaNoticia"></activity>
+            android:screenOrientation="portrait" />
+        <activity android:name=".ui.NuevaNoticia" />
         <activity
             android:name=".ui.ResultadoBusquedaNoticia"
             android:label="@string/app_name">
@@ -83,6 +83,13 @@
             <meta-data
                 android:name="android.app.searchable"
                 android:resource="@xml/searchable" />
+        </activity>
+        <activity
+            android:name=".ui.ActivityCambioIdioma"
+            android:parentActivityName=".ui.ActividadPrincipal">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".ui.ActividadPrincipal" />>
         </activity>
     </application>
 

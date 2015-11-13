@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="titulo_actividad_configuracion">Configuración</string>
+
+    <string name="categoria_notificaciones">Idioma</string>
+
+    <string name="titulo_preferencia">Idioma de la Aplicacion</string>
+    <string name="key_preferencia">lista_idiomas</string>
+    <string-array name="lista_idiomas">
+        <item>Español</item>
+        <item>Ingles</item>
+    </string-array>
+    <string-array name="lista_valores_idiomas">
+        <item>0</item>
+        <item>1</item>
+    </string-array>
+</resources>

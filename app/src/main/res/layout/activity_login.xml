@@ -87,7 +87,7 @@
         android:layout_gravity="center_vertical"
         android:gravity="center"
         android:layout_marginBottom="@dimen/espacio_norma_2"
-        android:text="¿No estas Registrado en Asoguau?"
+        android:text="@string/text_registro_login"
         android:textAppearance="?android:attr/textAppearanceMedium" />
 
     <Button

@@ -13,11 +13,16 @@ import com.android.volley.toolbox.Volley;
  * Created by hanyou on 28/09/15.
  */
 public final class VolleyAPI {
-    /*
+/*
     public static final String URL_WEBSERVICE = "http://192.168.56.1/Asoguau2/websevice";
     public static final String URL_CARPETA_IMAGENES_NOTICIAS = "http://192.168.56.1/Asoguau2/imagenes/noticia";
     public static final String URL_CARPETA_IMAGENES_USUARIOS = "http://192.168.56.1/Asoguau2/imagenes/usuario";
-    */
+*/
+/*
+    public static final String URL_WEBSERVICE = "http://192.168.0.157/asoguau/android/websevice";
+    public static final String URL_CARPETA_IMAGENES_NOTICIAS = "http://192.168.0.157/asoguau/android/imagenes/noticia";
+    public static final String URL_CARPETA_IMAGENES_USUARIOS = "http://192.168.0.157/asoguau/android/imagenes/usuario";
+*/
 
     public static final String URL_WEBSERVICE = "http://asoguau.esy.es/android/websevice";
     public static final String URL_CARPETA_IMAGENES_NOTICIAS = "http://asoguau.esy.es/android/imagenes/noticia";
